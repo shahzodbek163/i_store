@@ -22,7 +22,7 @@ class _IconTextWidgetState extends State<IconTextWidget> {
         ),
         Text(
           widget.text,
-          style: GoogleFonts.inter(color: Colors.white, fontSize: 18),
+          style: GoogleFonts.inter(color: Colors.white, fontSize: 18 / 1.5),
         ),
       ],
     );

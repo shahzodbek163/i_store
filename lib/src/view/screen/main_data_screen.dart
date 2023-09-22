@@ -8,73 +8,61 @@ class MainDataScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Row(
+        body: Column(
       children: [
-        Column(
-          children: [
-            const SizedBox(
-              height: 10,
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 30),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    "iStore",
-                    style: GoogleFonts.inter(
-                        fontSize: 28, color: const Color(0xFF49CE34)),
-                  ),
-                  const Icon(
-                    Icons.menu,
-                    size: 30,
-                    color: Colors.white,
-                  )
-                ],
+        Container(
+          height: 77 / 1.5,
+          decoration: const BoxDecoration(color: Color(0xFF404E67)),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              const SizedBox(
+                width: 27 / 1.5,
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 50),
-              child: Column(
-                children: [
-                  IconTextWidget(
-                      text: "Asosiy ma’lumotlar",
-                      icon: Image.asset(
-                        "dataBaseOne.png",
-                        height: 23,
-                      )),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  IconTextWidget(
-                      text: "Sotuv",
-                      icon: Image.asset(
-                        "datas.png",
-                        height: 23,
-                      )),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  IconTextWidget(
-                      text: "Maxsulot qabuli",
-                      icon: Image.asset(
-                        "recive.png",
-                        height: 23,
-                      )),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  IconTextWidget(
-                      text: "Hisobotlar",
-                      icon: Image.asset(
-                        "xsbt.png",
-                        height: 23,
-                      )),
-                ],
+              Text(
+                "iStore",
+                style: GoogleFonts.inter(
+                    color: const Color(0xFF49CE34), fontSize: 36 / 1.5),
               ),
-            ),
-          ],
-        ),
+              const SizedBox(
+                width: 40 / 1.5,
+              ),
+              IconTextWidget(
+                  text: "Asosiy ma’lumotlar",
+                  icon: Image.asset(
+                    "dataBaseOne.png",
+                    height: 23 / 1.5,
+                  )),
+              const SizedBox(
+                width: 40 / 1.5,
+              ),
+              IconTextWidget(
+                  text: "Sotuv",
+                  icon: Image.asset(
+                    "datas.png",
+                    height: 23 / 1.5,
+                  )),
+              const SizedBox(
+                width: 40 / 1.5,
+              ),
+              IconTextWidget(
+                  text: "Maxsulot qabuli",
+                  icon: Image.asset(
+                    "recive.png",
+                    height: 23,
+                  )),
+              const SizedBox(
+                width: 40 / 1.5,
+              ),
+              IconTextWidget(
+                  text: "Hisobotlar",
+                  icon: Image.asset(
+                    "xsbt.png",
+                    height: 23,
+                  )),
+            ],
+          ),
+        )
       ],
     ));
   }
