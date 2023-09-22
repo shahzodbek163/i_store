@@ -3,24 +3,20 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:i_store/src/view/widget/icon_text_widget.dart';
 
 class MainDataScreen extends StatelessWidget {
-  MainDataScreen({super.key});
-
-  final scaffoldKey = GlobalKey<ScaffoldState>();
+  const MainDataScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      key: scaffoldKey,
-      drawer: Drawer(
-        backgroundColor: const Color(0xFF404E67),
-        width: 350,
-        child: Column(
+        body: Row(
+      children: [
+        Column(
           children: [
             const SizedBox(
               height: 10,
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10),
+              padding: const EdgeInsets.symmetric(horizontal: 30),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -31,30 +27,55 @@ class MainDataScreen extends StatelessWidget {
                   ),
                   const Icon(
                     Icons.menu,
-                    size: 34,
+                    size: 30,
                     color: Colors.white,
                   )
                 ],
               ),
             ),
-            IconTextWidget(
-                text: "Asosiy ma’lumotlar",
-                icon: Image.asset("dataBaseOne.png"))
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 50),
+              child: Column(
+                children: [
+                  IconTextWidget(
+                      text: "Asosiy ma’lumotlar",
+                      icon: Image.asset(
+                        "dataBaseOne.png",
+                        height: 23,
+                      )),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  IconTextWidget(
+                      text: "Sotuv",
+                      icon: Image.asset(
+                        "datas.png",
+                        height: 23,
+                      )),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  IconTextWidget(
+                      text: "Maxsulot qabuli",
+                      icon: Image.asset(
+                        "recive.png",
+                        height: 23,
+                      )),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  IconTextWidget(
+                      text: "Hisobotlar",
+                      icon: Image.asset(
+                        "xsbt.png",
+                        height: 23,
+                      )),
+                ],
+              ),
+            ),
           ],
         ),
-      ),
-      body: Center(
-        child: GestureDetector(
-          onTap: () {
-            scaffoldKey.currentState!.openDrawer();
-          },
-          child: Container(
-            height: 100,
-            width: 100,
-            color: Colors.red,
-          ),
-        ),
-      ),
-    );
+      ],
+    ));
   }
 }
