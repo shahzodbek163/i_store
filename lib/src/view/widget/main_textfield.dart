@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class MainTextfield extends StatefulWidget {
-  const MainTextfield({super.key});
+  final String text;
+  const MainTextfield({super.key, required this.text});
 
   @override
   State<MainTextfield> createState() => _MainTextfieldState();
@@ -16,24 +17,28 @@ class _MainTextfieldState extends State<MainTextfield> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Row(
+          crossAxisAlignment: CrossAxisAlignment.end,
           children: [
-            const Text(
-              "Kategoriya turlari",
-              style: TextStyle(
+            Text(
+              widget.text,
+              style: GoogleFonts.inter(
                 fontSize: 20,
                 fontWeight: FontWeight.w500,
               ),
             ),
             const SizedBox(width: 5),
-            InkWell(
-              onTap: () {
-                isTap = !isTap;
-                setState(() {});
-              },
-              child: Image.asset(
-                isTap ? "stop.png" : "plus.png",
-                width: 16,
-                height: 16,
+            Padding(
+              padding: const EdgeInsets.only(bottom: 4),
+              child: InkWell(
+                onTap: () {
+                  isTap = !isTap;
+                  setState(() {});
+                },
+                child: Image.asset(
+                  isTap ? "stop.png" : "plus.png",
+                  width: 16,
+                  height: 16,
+                ),
               ),
             )
           ],
