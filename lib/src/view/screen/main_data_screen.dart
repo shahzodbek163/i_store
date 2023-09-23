@@ -101,7 +101,7 @@ class MainDataScreen extends StatelessWidget {
                   ),
                   const Padding(
                       padding: EdgeInsets.only(left: 62, top: 30),
-                      child: MainTextfield(text: "")),
+                      child: MainTextfield(text: "Tovar kategoriyalari")),
                   Padding(
                     padding:
                         const EdgeInsets.only(top: 16, left: 62, right: 200),

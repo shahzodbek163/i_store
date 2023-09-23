@@ -17,30 +17,52 @@ class _MainTextfieldState extends State<MainTextfield> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Row(
-          crossAxisAlignment: CrossAxisAlignment.end,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text(
-              widget.text,
-              style: GoogleFonts.inter(
-                fontSize: 20 / 1.3,
-                fontWeight: FontWeight.w500,
-              ),
-            ),
-            const SizedBox(width: 5),
-            Padding(
-              padding: const EdgeInsets.only(bottom: 4),
-              child: InkWell(
-                onTap: () {
-                  isTap = !isTap;
-                  setState(() {});
-                },
-                child: Image.asset(
-                  isTap ? "stop.png" : "plus.png",
-                  width: 16 / 1.3,
-                  height: 16 / 1.3,
+            Row(
+              children: [
+                Text(
+                  widget.text,
+                  style: GoogleFonts.inter(
+                    fontSize: 20 / 1.3,
+                    fontWeight: FontWeight.w500,
+                  ),
                 ),
-              ),
-            )
+                const SizedBox(width: 5),
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 4),
+                  child: InkWell(
+                    onTap: () {
+                      isTap = !isTap;
+                      setState(() {});
+                    },
+                    child: Image.asset(
+                      isTap ? "stop.png" : "plus.png",
+                      width: 16 / 1.3,
+                      height: 16 / 1.3,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            const Row(
+              children: [
+                Icon(
+                  Icons.arrow_back_ios_new_rounded,
+                  size: 16 / 1.5,
+                  color: Color(0xFF404E67),
+                ),
+                Icon(
+                  Icons.arrow_forward_ios_rounded,
+                  size: 16 / 1.5,
+                  color: Color(0xFF404E67),
+                ),
+              ],
+            ),
+            const SizedBox(
+              width: 200,
+            ),
           ],
         ),
         const SizedBox(
