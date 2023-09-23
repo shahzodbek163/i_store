@@ -11,6 +11,7 @@ class MainDataScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0xFFF6F7FB),
         body: Column(
       children: [
         Container(
@@ -51,8 +52,13 @@ class MainDataScreen extends StatelessWidget {
               IconTextWidget(
                   text: "Maxsulot qabuli",
                   icon: Image.asset(
+<<<<<<< HEAD
                     "assets/recive.png",
                     height: 23,
+=======
+                    "recive.png",
+                    height: 23 / 1.5,
+>>>>>>> 49644281366cdf6d363eb898eb9d6d539eefa8fb
                   )),
               const SizedBox(
                 width: 40 / 1.5,
@@ -60,8 +66,13 @@ class MainDataScreen extends StatelessWidget {
               IconTextWidget(
                   text: "Hisobotlar",
                   icon: Image.asset(
+<<<<<<< HEAD
                     "assets/xsbt.png",
                     height: 23,
+=======
+                    "xsbt.png",
+                    height: 23 / 1.5,
+>>>>>>> 49644281366cdf6d363eb898eb9d6d539eefa8fb
                   )),
             ],
           ),
