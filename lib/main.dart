@@ -5,6 +5,6 @@ import 'package:i_store/src/view/screen/test_screen.dart';
 void main(List<String> args) {
   runApp(const MaterialApp(
     debugShowCheckedModeBanner: false,
-    home: TestScreen(),
+    home: MainDataScreen(),
   ));
 }

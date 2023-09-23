@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:i_store/src/view/widget/icon_text_widget.dart';
+import 'package:i_store/src/view/widget/main_textfield.dart';
+import 'package:i_store/src/view/widget/tables/table.dart';
+import 'package:i_store/src/view/widget/text_icon.dart';
 
 class MainDataScreen extends StatelessWidget {
   const MainDataScreen({super.key});
@@ -30,7 +33,7 @@ class MainDataScreen extends StatelessWidget {
               IconTextWidget(
                   text: "Asosiy ma’lumotlar",
                   icon: Image.asset(
-                    "dataBaseOne.png",
+                    "assets/dataBaseOne.png",
                     height: 23 / 1.5,
                   )),
               const SizedBox(
@@ -39,7 +42,7 @@ class MainDataScreen extends StatelessWidget {
               IconTextWidget(
                   text: "Sotuv",
                   icon: Image.asset(
-                    "datas.png",
+                    "assets/datas.png",
                     height: 23 / 1.5,
                   )),
               const SizedBox(
@@ -48,7 +51,7 @@ class MainDataScreen extends StatelessWidget {
               IconTextWidget(
                   text: "Maxsulot qabuli",
                   icon: Image.asset(
-                    "recive.png",
+                    "assets/recive.png",
                     height: 23,
                   )),
               const SizedBox(
@@ -57,9 +60,180 @@ class MainDataScreen extends StatelessWidget {
               IconTextWidget(
                   text: "Hisobotlar",
                   icon: Image.asset(
-                    "xsbt.png",
+                    "assets/xsbt.png",
                     height: 23,
                   )),
+            ],
+          ),
+        ),
+        Expanded(
+          child: ListView(
+            children: [
+              const Padding(
+                padding: EdgeInsets.only(left: 62, top: 22),
+                child: TextIcon(
+                  title: "Tovar sotiladigan qurilmalar",
+                  imagePath: "assets/plus.png",
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 16, left: 62, right: 200),
+                child: CustomTable(tables: [
+                  TableModel(
+                    name: "Telefon s23 Ultra",
+                    user: "sammsung@mail.ru",
+                    addedDate: DateTime.now(),
+                  ),
+                  TableModel(
+                    name: "name",
+                    user: "user",
+                    addedDate: DateTime.now(),
+                  ),
+                  TableModel(
+                    name: "name",
+                    user: "user",
+                    addedDate: DateTime.now(),
+                  ),
+                  TableModel(
+                    name: "name",
+                    user: "user",
+                    addedDate: DateTime.now(),
+                  ),
+                ]),
+              ),
+              const Padding(
+                padding: EdgeInsets.only(left: 62, top: 30),
+                child: TextIcon(
+                    title: "Tovar kategoriyalari",
+                    imagePath: "assets/plus.png"),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 16, left: 62, right: 200),
+                child: CustomTable(tables: [
+                  TableModel(
+                    name: "Telefon s23 Ultra",
+                    user: "sammsung@mail.ru",
+                    addedDate: DateTime.now(),
+                  ),
+                  TableModel(
+                    name: "name",
+                    user: "user",
+                    addedDate: DateTime.now(),
+                  ),
+                  TableModel(
+                    name: "name",
+                    user: "user",
+                    addedDate: DateTime.now(),
+                  ),
+                  TableModel(
+                    name: "name",
+                    user: "user",
+                    addedDate: DateTime.now(),
+                  ),
+                  TableModel(
+                    name: "name",
+                    user: "user",
+                    addedDate: DateTime.now(),
+                  ),
+                  TableModel(
+                    name: "name",
+                    user: "user",
+                    addedDate: DateTime.now(),
+                  ),
+                  TableModel(
+                    name: "name",
+                    user: "user",
+                    addedDate: DateTime.now(),
+                  ),
+                  TableModel(
+                    name: "name",
+                    user: "user",
+                    addedDate: DateTime.now(),
+                  ),
+                  TableModel(
+                    name: "name",
+                    user: "user",
+                    addedDate: DateTime.now(),
+                  ),
+                  TableModel(
+                    name: "name",
+                    user: "user",
+                    addedDate: DateTime.now(),
+                  ),
+                  TableModel(
+                    name: "name",
+                    user: "user",
+                    addedDate: DateTime.now(),
+                  ),
+                ]),
+              ),
+              const Padding(
+                padding: EdgeInsets.only(left: 62, top: 22),
+                child: MainTextfield(),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 16, left: 62, right: 200),
+                child: CustomTable(tables: [
+                  TableModel(
+                    name: "Telefon s23 Ultra",
+                    user: "sammsung@mail.ru",
+                    addedDate: DateTime.now(),
+                  ),
+                  TableModel(
+                    name: "name",
+                    user: "user",
+                    addedDate: DateTime.now(),
+                  ),
+                  TableModel(
+                    name: "name",
+                    user: "user",
+                    addedDate: DateTime.now(),
+                  ),
+                  TableModel(
+                    name: "name",
+                    user: "user",
+                    addedDate: DateTime.now(),
+                  ),
+                  TableModel(
+                    name: "name",
+                    user: "user",
+                    addedDate: DateTime.now(),
+                  ),
+                  TableModel(
+                    name: "name",
+                    user: "user",
+                    addedDate: DateTime.now(),
+                  ),
+                  TableModel(
+                    name: "name",
+                    user: "user",
+                    addedDate: DateTime.now(),
+                  ),
+                  TableModel(
+                    name: "name",
+                    user: "user",
+                    addedDate: DateTime.now(),
+                  ),
+                  TableModel(
+                    name: "name",
+                    user: "user",
+                    addedDate: DateTime.now(),
+                  ),
+                  TableModel(
+                    name: "name",
+                    user: "user",
+                    addedDate: DateTime.now(),
+                  ),
+                  TableModel(
+                    name: "name",
+                    user: "user",
+                    addedDate: DateTime.now(),
+                  ),
+                ]),
+              ),
+              const SizedBox(
+                height: 100,
+              ),
             ],
           ),
         )

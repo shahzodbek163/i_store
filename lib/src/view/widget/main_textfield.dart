@@ -19,7 +19,7 @@ class MainTextfield extends StatelessWidget {
               ),
             ),
             Image.asset(
-              "stop.png",
+              "assets/stop.png",
               width: 16,
               height: 16,
             )
@@ -31,8 +31,8 @@ class MainTextfield extends StatelessWidget {
         Row(
           children: [
             Container(
-              width: 376,
-              height: 36,
+              width: 376 / 1.2,
+              height: 36 / 1.2,
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(3),
                   border: Border.all(
@@ -47,7 +47,7 @@ class MainTextfield extends StatelessWidget {
                       child: TextField(
                         style: GoogleFonts.inter(
                           color: const Color(0xFF344054),
-                          fontSize: 16,
+                          fontSize: 16 / 1.2,
                           fontWeight: FontWeight.w500,
                         ),
                         decoration: const InputDecoration(
@@ -60,7 +60,7 @@ class MainTextfield extends StatelessWidget {
                   ),
                   Container(
                     alignment: Alignment.center,
-                    width: 72,
+                    width: 72 / 1.2,
                     height: double.infinity,
                     decoration: const BoxDecoration(
                       color: Color(0xFF404E67),
@@ -73,7 +73,7 @@ class MainTextfield extends StatelessWidget {
                       "Excel",
                       style: GoogleFonts.inter(
                         fontWeight: FontWeight.w500,
-                        fontSize: 16,
+                        fontSize: 16 / 1.2,
                         color: Colors.white,
                       ),
                     ),
@@ -84,8 +84,8 @@ class MainTextfield extends StatelessWidget {
             const SizedBox(width: 14),
             Container(
               alignment: Alignment.center,
-              width: 100,
-              height: 36,
+              width: 100 / 1.2,
+              height: 36 / 1.2,
               decoration: BoxDecoration(
                 color: const Color(0xFF4CAF50),
                 borderRadius: BorderRadius.circular(3),
@@ -95,7 +95,7 @@ class MainTextfield extends StatelessWidget {
                 style: GoogleFonts.inter(
                   color: Colors.white,
                   fontWeight: FontWeight.w500,
-                  fontSize: 16,
+                  fontSize: 16 / 1.2,
                 ),
               ),
             ),
