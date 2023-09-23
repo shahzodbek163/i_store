@@ -3,7 +3,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:i_store/src/view/widget/icon_text_widget.dart';
 import 'package:i_store/src/view/widget/main_textfield.dart';
 import 'package:i_store/src/view/widget/tables/table.dart';
-import 'package:i_store/src/view/widget/text_icon.dart';
 
 class MainDataScreen extends StatelessWidget {
   const MainDataScreen({super.key});
@@ -71,12 +70,9 @@ class MainDataScreen extends StatelessWidget {
               child: ListView(
                 children: [
                   const Padding(
-                    padding: EdgeInsets.only(left: 62, top: 22),
-                    child: TextIcon(
-                      title: "Tovar sotiladigan qurilmalar",
-                      imagePath: "assets/plus.png",
-                    ),
-                  ),
+                      padding: EdgeInsets.only(left: 62, top: 22),
+                      child:
+                          MainTextfield(text: "Tovar sotiladigan qurilmalar")),
                   Padding(
                     padding:
                         const EdgeInsets.only(top: 16, left: 62, right: 200),
@@ -104,11 +100,8 @@ class MainDataScreen extends StatelessWidget {
                     ]),
                   ),
                   const Padding(
-                    padding: EdgeInsets.only(left: 62, top: 30),
-                    child: TextIcon(
-                        title: "Tovar kategoriyalari",
-                        imagePath: "assets/plus.png"),
-                  ),
+                      padding: EdgeInsets.only(left: 62, top: 30),
+                      child: MainTextfield(text: "")),
                   Padding(
                     padding:
                         const EdgeInsets.only(top: 16, left: 62, right: 200),
@@ -171,11 +164,8 @@ class MainDataScreen extends StatelessWidget {
                     ]),
                   ),
                   const Padding(
-                    padding: EdgeInsets.only(left: 62, top: 30),
-                    child: TextIcon(
-                        title: "Tovar kategoriyalari",
-                        imagePath: "assets/plus.png"),
-                  ),
+                      padding: EdgeInsets.only(left: 62, top: 30),
+                      child: MainTextfield(text: "Tovar kategoriyalari")),
                   Padding(
                     padding:
                         const EdgeInsets.only(top: 16, left: 62, right: 200),
