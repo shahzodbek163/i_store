@@ -31,7 +31,7 @@ class _MainTextfieldState extends State<MainTextfield> {
                 ),
                 const SizedBox(width: 5),
                 Padding(
-                  padding: const EdgeInsets.only(bottom: 4),
+                  padding: const EdgeInsets.only(top: 5),
                   child: InkWell(
                     onTap: () {
                       isTap = !isTap;
@@ -60,80 +60,97 @@ class _MainTextfieldState extends State<MainTextfield> {
                 ),
               ],
             ),
-            const SizedBox(
-              width: 200,
-            ),
           ],
         ),
         const SizedBox(
           height: 16 / 1.5,
         ),
         isTap
-            ? Row(
-                children: [
-                  Container(
-                    width: 376 / 1.5,
-                    height: 42 / 1.5,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(3),
-                        border: Border.all(
-                          color: const Color(0xFFB5BDC5),
-                          width: 1,
-                        )),
-                    child: Row(
-                      children: [
-                        Expanded(
-                          child: Padding(
-                            padding: const EdgeInsets.symmetric(vertical: 12),
-                            child: TextField(
-                              style: GoogleFonts.inter(
-                                color: const Color(0xFF344054),
-                                fontSize: 16 / 1.5,
-                                fontWeight: FontWeight.w500,
-                              ),
-                              decoration: const InputDecoration(
-                                border: OutlineInputBorder(
-                                  borderSide: BorderSide.none,
+            ? Padding(
+                padding: const EdgeInsets.only(bottom: 22 / 1.5),
+                child: Row(
+                  children: [
+                    Container(
+                      width: 376 / 1.5,
+                      height: 42 / 1.5,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(3),
+                          border: Border.all(
+                            color: const Color(0xFFB5BDC5),
+                            width: 1,
+                          )),
+                      child: Row(
+                        children: [
+                          Expanded(
+                            child: Padding(
+                              padding: const EdgeInsets.symmetric(vertical: 12),
+                              child: TextField(
+                                style: GoogleFonts.inter(
+                                  color: const Color(0xFF344054),
+                                  fontSize: 16 / 1.5,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                                decoration: const InputDecoration(
+                                  border: OutlineInputBorder(
+                                    borderSide: BorderSide.none,
+                                  ),
                                 ),
                               ),
                             ),
                           ),
-                        ),
-                        Container(
-                          alignment: Alignment.center,
-                          width: 103 / 1.5,
-                          height: double.infinity,
-                          decoration: const BoxDecoration(
-                            color: Color(0xFF4CAF50),
-                            borderRadius: BorderRadius.only(
-                              topLeft: Radius.circular(3),
-                              bottomLeft: Radius.circular(3),
+                          Container(
+                            alignment: Alignment.center,
+                            width: 103 / 1.5,
+                            height: double.infinity,
+                            decoration: const BoxDecoration(
+                              color: Color(0xFF4CAF50),
+                              borderRadius: BorderRadius.only(
+                                topLeft: Radius.circular(3),
+                                bottomLeft: Radius.circular(3),
+                              ),
+                            ),
+                            child: Text(
+                              "Qo'shish",
+                              style: GoogleFonts.inter(
+                                fontWeight: FontWeight.w500,
+                                fontSize: 16 / 1.5,
+                                color: Colors.white,
+                              ),
                             ),
                           ),
-                          child: Text(
-                            "Qo'shish",
-                            style: GoogleFonts.inter(
-                              fontWeight: FontWeight.w500,
-                              fontSize: 16 / 1.5,
-                              color: Colors.white,
-                            ),
-                          ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 10),
-                    child: Container(
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 10),
+                      child: Container(
+                        alignment: Alignment.center,
+                        width: 103 / 1.5,
+                        height: 42 / 1.5,
+                        decoration: BoxDecoration(
+                          color: const Color(0xFF404E67),
+                          borderRadius: BorderRadius.circular(3),
+                        ),
+                        child: Text(
+                          "Excel",
+                          style: GoogleFonts.inter(
+                            color: Colors.white,
+                            fontWeight: FontWeight.w500,
+                            fontSize: 16 / 1.5,
+                          ),
+                        ),
+                      ),
+                    ),
+                    Container(
                       alignment: Alignment.center,
                       width: 103 / 1.5,
                       height: 42 / 1.5,
                       decoration: BoxDecoration(
-                        color: const Color(0xFF404E67),
+                        color: const Color(0xFF3A69BB),
                         borderRadius: BorderRadius.circular(3),
                       ),
                       child: Text(
-                        "Excel",
+                        "Yuklash",
                         style: GoogleFonts.inter(
                           color: Colors.white,
                           fontWeight: FontWeight.w500,
@@ -141,25 +158,8 @@ class _MainTextfieldState extends State<MainTextfield> {
                         ),
                       ),
                     ),
-                  ),
-                  Container(
-                    alignment: Alignment.center,
-                    width: 103 / 1.5,
-                    height: 42 / 1.5,
-                    decoration: BoxDecoration(
-                      color: const Color(0xFF3A69BB),
-                      borderRadius: BorderRadius.circular(3),
-                    ),
-                    child: Text(
-                      "Yuklash",
-                      style: GoogleFonts.inter(
-                        color: Colors.white,
-                        fontWeight: FontWeight.w500,
-                        fontSize: 16 / 1.5,
-                      ),
-                    ),
-                  ),
-                ],
+                  ],
+                ),
               )
             : const SizedBox(),
       ],

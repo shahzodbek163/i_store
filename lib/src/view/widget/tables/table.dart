@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:i_store/src/model/table_model.dart';
 
 class CustomTable extends StatelessWidget {
   final List<TableModel> tables;
@@ -187,12 +188,4 @@ class CustomTable extends StatelessWidget {
       ),
     );
   }
-}
-
-class TableModel {
-  final String name;
-  final String user;
-  final DateTime addedDate;
-
-  TableModel({required this.name, required this.user, required this.addedDate});
 }
