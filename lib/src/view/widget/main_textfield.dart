@@ -11,14 +11,14 @@ class MainTextfield extends StatefulWidget {
 
 class _MainTextfieldState extends State<MainTextfield> {
   bool isTap = false;
-  double size = 40;
+  double size = 32;
   @override
   Widget build(BuildContext context) {
     return AnimatedContainer(
       duration: const Duration(milliseconds: 400),
-      height: isTap ? 76 : 32,
+      height: isTap ? 76 : 28,
       child: SingleChildScrollView(
-        physics: NeverScrollableScrollPhysics(),
+        physics: const NeverScrollableScrollPhysics(),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
