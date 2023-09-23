@@ -22,7 +22,7 @@ class _MainTextfieldState extends State<MainTextfield> {
             Text(
               widget.text,
               style: GoogleFonts.inter(
-                fontSize: 20,
+                fontSize: 20 / 1.3,
                 fontWeight: FontWeight.w500,
               ),
             ),
@@ -36,22 +36,22 @@ class _MainTextfieldState extends State<MainTextfield> {
                 },
                 child: Image.asset(
                   isTap ? "stop.png" : "plus.png",
-                  width: 16,
-                  height: 16,
+                  width: 16 / 1.3,
+                  height: 16 / 1.3,
                 ),
               ),
             )
           ],
         ),
         const SizedBox(
-          height: 16,
+          height: 16 / 1.5,
         ),
         isTap
             ? Row(
                 children: [
                   Container(
-                    width: 376,
-                    height: 36,
+                    width: 376 / 1.5,
+                    height: 42 / 1.5,
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(3),
                         border: Border.all(
@@ -66,7 +66,7 @@ class _MainTextfieldState extends State<MainTextfield> {
                             child: TextField(
                               style: GoogleFonts.inter(
                                 color: const Color(0xFF344054),
-                                fontSize: 16,
+                                fontSize: 16 / 1.5,
                                 fontWeight: FontWeight.w500,
                               ),
                               decoration: const InputDecoration(
@@ -79,20 +79,20 @@ class _MainTextfieldState extends State<MainTextfield> {
                         ),
                         Container(
                           alignment: Alignment.center,
-                          width: 72,
+                          width: 103 / 1.5,
                           height: double.infinity,
                           decoration: const BoxDecoration(
-                            color: Color(0xFF404E67),
+                            color: Color(0xFF4CAF50),
                             borderRadius: BorderRadius.only(
                               topLeft: Radius.circular(3),
                               bottomLeft: Radius.circular(3),
                             ),
                           ),
                           child: Text(
-                            "Excel",
+                            "Qo'shish",
                             style: GoogleFonts.inter(
                               fontWeight: FontWeight.w500,
-                              fontSize: 16,
+                              fontSize: 16 / 1.5,
                               color: Colors.white,
                             ),
                           ),
@@ -100,21 +100,40 @@ class _MainTextfieldState extends State<MainTextfield> {
                       ],
                     ),
                   ),
-                  const SizedBox(width: 14),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 10),
+                    child: Container(
+                      alignment: Alignment.center,
+                      width: 103 / 1.5,
+                      height: 42 / 1.5,
+                      decoration: BoxDecoration(
+                        color: const Color(0xFF404E67),
+                        borderRadius: BorderRadius.circular(3),
+                      ),
+                      child: Text(
+                        "Excel",
+                        style: GoogleFonts.inter(
+                          color: Colors.white,
+                          fontWeight: FontWeight.w500,
+                          fontSize: 16 / 1.5,
+                        ),
+                      ),
+                    ),
+                  ),
                   Container(
                     alignment: Alignment.center,
-                    width: 100,
-                    height: 36,
+                    width: 103 / 1.5,
+                    height: 42 / 1.5,
                     decoration: BoxDecoration(
-                      color: const Color(0xFF4CAF50),
+                      color: const Color(0xFF3A69BB),
                       borderRadius: BorderRadius.circular(3),
                     ),
                     child: Text(
-                      "Qo'shish",
+                      "Yuklash",
                       style: GoogleFonts.inter(
                         color: Colors.white,
                         fontWeight: FontWeight.w500,
-                        fontSize: 16,
+                        fontSize: 16 / 1.5,
                       ),
                     ),
                   ),
