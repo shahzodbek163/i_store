@@ -11,244 +11,239 @@ class MainDataScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFF6F7FB),
+        backgroundColor: const Color(0xFFF6F7FB),
         body: Column(
-      children: [
-        Container(
-          height: 77 / 1.5,
-          decoration: const BoxDecoration(color: Color(0xFF404E67)),
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              const SizedBox(
-                width: 27 / 1.5,
+          children: [
+            Container(
+              height: 77 / 1.5,
+              decoration: const BoxDecoration(color: Color(0xFF404E67)),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  const SizedBox(
+                    width: 27 / 1.5,
+                  ),
+                  Text(
+                    "iStore",
+                    style: GoogleFonts.inter(
+                        color: const Color(0xFF49CE34), fontSize: 36 / 1.5),
+                  ),
+                  const SizedBox(
+                    width: 40 / 1.5,
+                  ),
+                  IconTextWidget(
+                      text: "Asosiy ma’lumotlar",
+                      icon: Image.asset(
+                        "assets/dataBaseOne.png",
+                        height: 23 / 1.5,
+                      )),
+                  const SizedBox(
+                    width: 40 / 1.5,
+                  ),
+                  IconTextWidget(
+                      text: "Sotuv",
+                      icon: Image.asset(
+                        "assets/datas.png",
+                        height: 23 / 1.5,
+                      )),
+                  const SizedBox(
+                    width: 40 / 1.5,
+                  ),
+                  IconTextWidget(
+                      text: "Maxsulot qabuli",
+                      icon: Image.asset(
+                        "recive.png",
+                        height: 23 / 1.5,
+                      )),
+                  const SizedBox(
+                    width: 40 / 1.5,
+                  ),
+                  IconTextWidget(
+                      text: "Hisobotlar",
+                      icon: Image.asset(
+                        "xsbt.png",
+                        height: 23 / 1.5,
+                      )),
+                ],
               ),
-              Text(
-                "iStore",
-                style: GoogleFonts.inter(
-                    color: const Color(0xFF49CE34), fontSize: 36 / 1.5),
+            ),
+            Expanded(
+              child: ListView(
+                children: [
+                  const Padding(
+                    padding: EdgeInsets.only(left: 62, top: 22),
+                    child: TextIcon(
+                      title: "Tovar sotiladigan qurilmalar",
+                      imagePath: "assets/plus.png",
+                    ),
+                  ),
+                  Padding(
+                    padding:
+                        const EdgeInsets.only(top: 16, left: 62, right: 200),
+                    child: CustomTable(tables: [
+                      TableModel(
+                        name: "Telefon s23 Ultra",
+                        user: "sammsung@mail.ru",
+                        addedDate: DateTime.now(),
+                      ),
+                      TableModel(
+                        name: "name",
+                        user: "user",
+                        addedDate: DateTime.now(),
+                      ),
+                      TableModel(
+                        name: "name",
+                        user: "user",
+                        addedDate: DateTime.now(),
+                      ),
+                      TableModel(
+                        name: "name",
+                        user: "user",
+                        addedDate: DateTime.now(),
+                      ),
+                    ]),
+                  ),
+                  const Padding(
+                    padding: EdgeInsets.only(left: 62, top: 30),
+                    child: TextIcon(
+                        title: "Tovar kategoriyalari",
+                        imagePath: "assets/plus.png"),
+                  ),
+                  Padding(
+                    padding:
+                        const EdgeInsets.only(top: 16, left: 62, right: 200),
+                    child: CustomTable(tables: [
+                      TableModel(
+                        name: "Telefon s23 Ultra",
+                        user: "sammsung@mail.ru",
+                        addedDate: DateTime.now(),
+                      ),
+                      TableModel(
+                        name: "name",
+                        user: "user",
+                        addedDate: DateTime.now(),
+                      ),
+                      TableModel(
+                        name: "name",
+                        user: "user",
+                        addedDate: DateTime.now(),
+                      ),
+                      TableModel(
+                        name: "name",
+                        user: "user",
+                        addedDate: DateTime.now(),
+                      ),
+                      TableModel(
+                        name: "name",
+                        user: "user",
+                        addedDate: DateTime.now(),
+                      ),
+                      TableModel(
+                        name: "name",
+                        user: "user",
+                        addedDate: DateTime.now(),
+                      ),
+                      TableModel(
+                        name: "name",
+                        user: "user",
+                        addedDate: DateTime.now(),
+                      ),
+                      TableModel(
+                        name: "name",
+                        user: "user",
+                        addedDate: DateTime.now(),
+                      ),
+                      TableModel(
+                        name: "name",
+                        user: "user",
+                        addedDate: DateTime.now(),
+                      ),
+                      TableModel(
+                        name: "name",
+                        user: "user",
+                        addedDate: DateTime.now(),
+                      ),
+                      TableModel(
+                        name: "name",
+                        user: "user",
+                        addedDate: DateTime.now(),
+                      ),
+                    ]),
+                  ),
+                  const Padding(
+                    padding: EdgeInsets.only(left: 62, top: 30),
+                    child: TextIcon(
+                        title: "Tovar kategoriyalari",
+                        imagePath: "assets/plus.png"),
+                  ),
+                  Padding(
+                    padding:
+                        const EdgeInsets.only(top: 16, left: 62, right: 200),
+                    child: CustomTable(tables: [
+                      TableModel(
+                        name: "Telefon s23 Ultra",
+                        user: "sammsung@mail.ru",
+                        addedDate: DateTime.now(),
+                      ),
+                      TableModel(
+                        name: "name",
+                        user: "user",
+                        addedDate: DateTime.now(),
+                      ),
+                      TableModel(
+                        name: "name",
+                        user: "user",
+                        addedDate: DateTime.now(),
+                      ),
+                      TableModel(
+                        name: "name",
+                        user: "user",
+                        addedDate: DateTime.now(),
+                      ),
+                      TableModel(
+                        name: "name",
+                        user: "user",
+                        addedDate: DateTime.now(),
+                      ),
+                      TableModel(
+                        name: "name",
+                        user: "user",
+                        addedDate: DateTime.now(),
+                      ),
+                      TableModel(
+                        name: "name",
+                        user: "user",
+                        addedDate: DateTime.now(),
+                      ),
+                      TableModel(
+                        name: "name",
+                        user: "user",
+                        addedDate: DateTime.now(),
+                      ),
+                      TableModel(
+                        name: "name",
+                        user: "user",
+                        addedDate: DateTime.now(),
+                      ),
+                      TableModel(
+                        name: "name",
+                        user: "user",
+                        addedDate: DateTime.now(),
+                      ),
+                      TableModel(
+                        name: "name",
+                        user: "user",
+                        addedDate: DateTime.now(),
+                      ),
+                    ]),
+                  ),
+                  const SizedBox(
+                    height: 100,
+                  ),
+                ],
               ),
-              const SizedBox(
-                width: 40 / 1.5,
-              ),
-              IconTextWidget(
-                  text: "Asosiy ma’lumotlar",
-                  icon: Image.asset(
-                    "assets/dataBaseOne.png",
-                    height: 23 / 1.5,
-                  )),
-              const SizedBox(
-                width: 40 / 1.5,
-              ),
-              IconTextWidget(
-                  text: "Sotuv",
-                  icon: Image.asset(
-                    "assets/datas.png",
-                    height: 23 / 1.5,
-                  )),
-              const SizedBox(
-                width: 40 / 1.5,
-              ),
-              IconTextWidget(
-                  text: "Maxsulot qabuli",
-                  icon: Image.asset(
-<<<<<<< HEAD
-                    "assets/recive.png",
-                    height: 23,
-=======
-                    "recive.png",
-                    height: 23 / 1.5,
->>>>>>> 49644281366cdf6d363eb898eb9d6d539eefa8fb
-                  )),
-              const SizedBox(
-                width: 40 / 1.5,
-              ),
-              IconTextWidget(
-                  text: "Hisobotlar",
-                  icon: Image.asset(
-<<<<<<< HEAD
-                    "assets/xsbt.png",
-                    height: 23,
-=======
-                    "xsbt.png",
-                    height: 23 / 1.5,
->>>>>>> 49644281366cdf6d363eb898eb9d6d539eefa8fb
-                  )),
-            ],
-          ),
-        ),
-        Expanded(
-          child: ListView(
-            children: [
-              const Padding(
-                padding: EdgeInsets.only(left: 62, top: 22),
-                child: TextIcon(
-                  title: "Tovar sotiladigan qurilmalar",
-                  imagePath: "assets/plus.png",
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(top: 16, left: 62, right: 200),
-                child: CustomTable(tables: [
-                  TableModel(
-                    name: "Telefon s23 Ultra",
-                    user: "sammsung@mail.ru",
-                    addedDate: DateTime.now(),
-                  ),
-                  TableModel(
-                    name: "name",
-                    user: "user",
-                    addedDate: DateTime.now(),
-                  ),
-                  TableModel(
-                    name: "name",
-                    user: "user",
-                    addedDate: DateTime.now(),
-                  ),
-                  TableModel(
-                    name: "name",
-                    user: "user",
-                    addedDate: DateTime.now(),
-                  ),
-                ]),
-              ),
-              const Padding(
-                padding: EdgeInsets.only(left: 62, top: 30),
-                child: TextIcon(
-                    title: "Tovar kategoriyalari",
-                    imagePath: "assets/plus.png"),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(top: 16, left: 62, right: 200),
-                child: CustomTable(tables: [
-                  TableModel(
-                    name: "Telefon s23 Ultra",
-                    user: "sammsung@mail.ru",
-                    addedDate: DateTime.now(),
-                  ),
-                  TableModel(
-                    name: "name",
-                    user: "user",
-                    addedDate: DateTime.now(),
-                  ),
-                  TableModel(
-                    name: "name",
-                    user: "user",
-                    addedDate: DateTime.now(),
-                  ),
-                  TableModel(
-                    name: "name",
-                    user: "user",
-                    addedDate: DateTime.now(),
-                  ),
-                  TableModel(
-                    name: "name",
-                    user: "user",
-                    addedDate: DateTime.now(),
-                  ),
-                  TableModel(
-                    name: "name",
-                    user: "user",
-                    addedDate: DateTime.now(),
-                  ),
-                  TableModel(
-                    name: "name",
-                    user: "user",
-                    addedDate: DateTime.now(),
-                  ),
-                  TableModel(
-                    name: "name",
-                    user: "user",
-                    addedDate: DateTime.now(),
-                  ),
-                  TableModel(
-                    name: "name",
-                    user: "user",
-                    addedDate: DateTime.now(),
-                  ),
-                  TableModel(
-                    name: "name",
-                    user: "user",
-                    addedDate: DateTime.now(),
-                  ),
-                  TableModel(
-                    name: "name",
-                    user: "user",
-                    addedDate: DateTime.now(),
-                  ),
-                ]),
-              ),
-              const Padding(
-                padding: EdgeInsets.only(left: 62, top: 22),
-                child: MainTextfield(),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(top: 16, left: 62, right: 200),
-                child: CustomTable(tables: [
-                  TableModel(
-                    name: "Telefon s23 Ultra",
-                    user: "sammsung@mail.ru",
-                    addedDate: DateTime.now(),
-                  ),
-                  TableModel(
-                    name: "name",
-                    user: "user",
-                    addedDate: DateTime.now(),
-                  ),
-                  TableModel(
-                    name: "name",
-                    user: "user",
-                    addedDate: DateTime.now(),
-                  ),
-                  TableModel(
-                    name: "name",
-                    user: "user",
-                    addedDate: DateTime.now(),
-                  ),
-                  TableModel(
-                    name: "name",
-                    user: "user",
-                    addedDate: DateTime.now(),
-                  ),
-                  TableModel(
-                    name: "name",
-                    user: "user",
-                    addedDate: DateTime.now(),
-                  ),
-                  TableModel(
-                    name: "name",
-                    user: "user",
-                    addedDate: DateTime.now(),
-                  ),
-                  TableModel(
-                    name: "name",
-                    user: "user",
-                    addedDate: DateTime.now(),
-                  ),
-                  TableModel(
-                    name: "name",
-                    user: "user",
-                    addedDate: DateTime.now(),
-                  ),
-                  TableModel(
-                    name: "name",
-                    user: "user",
-                    addedDate: DateTime.now(),
-                  ),
-                  TableModel(
-                    name: "name",
-                    user: "user",
-                    addedDate: DateTime.now(),
-                  ),
-                ]),
-              ),
-              const SizedBox(
-                height: 100,
-              ),
-            ],
-          ),
-        )
-      ],
-    ));
+            )
+          ],
+        ));
   }
 }
