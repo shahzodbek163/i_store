@@ -70,21 +70,64 @@ class MainDataScreen extends StatelessWidget {
               ),
               SingleChildScrollView(
                 child: Padding(
-                  padding: const EdgeInsets.only(
-                    top: 31 / 1.5,
-                    right: 200,
-                    left: 62,
+                  padding: const EdgeInsets.symmetric(
+                    vertical: 31,
+                    horizontal: 62,
                   ),
                   child: Column(
                     children: [
-                      const MainTextfield(text: "Tovar sotiladigan qurilmalar"),
-                      CustomTable(tables: tableSoldOutList),
+                      Padding(
+                        padding: const EdgeInsets.only(right: 140),
+                        child: Column(
+                          children: [
+                            const Row(
+                              children: [
+                                Spacer(),
+                                Icon(
+                                  Icons.arrow_back_ios_new_rounded,
+                                  size: 16 / 1.5,
+                                  color: Color(0xFF404E67),
+                                ),
+                                Icon(
+                                  Icons.arrow_forward_ios_rounded,
+                                  size: 16 / 1.5,
+                                  color: Color(0xFF404E67),
+                                ),
+                              ],
+                            ),
+                            MainTextfield(text: "Tovar sotiladigan qurilmalar"),
+                            CustomTable(tables: tableSoldOutList),
+                          ],
+                        ),
+                      ),
                       const SizedBox(height: 60),
-                      const MainTextfield(text: "Tovar sotiladigan qurilmalar"),
-                      CustomTable(tables: tableCategoryList),
+                      Padding(
+                        padding: const EdgeInsets.only(right: 140),
+                        child: Column(children: [
+                          const Row(
+                            children: [
+                              Spacer(),
+                              Icon(
+                                Icons.arrow_back_ios_new_rounded,
+                                size: 16 / 1.5,
+                                color: Color(0xFF404E67),
+                              ),
+                              Icon(
+                                Icons.arrow_forward_ios_rounded,
+                                size: 16 / 1.5,
+                                color: Color(0xFF404E67),
+                              ),
+                            ],
+                          ),
+                          MainTextfield(text: "Tovar sotiladigan qurilmalar"),
+                          CustomTable(tables: tableCategoryList),
+                        ]),
+                      ),
                       const SizedBox(height: 60),
-                      const MainTextfield(text: "Tovar sotiladigan qurilmalar"),
-                      CustomTable(tables: tableCategoryList),
+                      Column(children: [
+                        MainTextfield(text: "Tovar sotiladigan qurilmalar"),
+                        CustomTable(tables: tableCategoryList),
+                      ]),
                     ],
                   ),
                 ),
