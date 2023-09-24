@@ -153,6 +153,7 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.17.2"
+<<<<<<< HEAD
   convert:
     dependency: transitive
     description:
@@ -161,6 +162,8 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.1.1"
+=======
+>>>>>>> beb60fe23a0c4969681ab622cb3dd34b3e1a2942
   crypto:
     dependency: transitive
     description:
@@ -177,6 +180,7 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.6"
+<<<<<<< HEAD
   dart_style:
     dependency: transitive
     description:
@@ -193,6 +197,16 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "5.3.3"
+=======
+  edu_badge_textfield:
+    dependency: "direct main"
+    description:
+      name: edu_badge_textfield
+      sha256: da5949a2721b856899000d5987980cbe82a74309fb4c9cc4faf4427a6d277d98
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.0.6"
+>>>>>>> beb60fe23a0c4969681ab622cb3dd34b3e1a2942
   fake_async:
     dependency: transitive
     description:
@@ -584,6 +598,7 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.1"
+<<<<<<< HEAD
   stream_transform:
     dependency: transitive
     description:
@@ -592,6 +607,8 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.0"
+=======
+>>>>>>> beb60fe23a0c4969681ab622cb3dd34b3e1a2942
   string_scanner:
     dependency: transitive
     description:
@@ -616,6 +633,7 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.6.0"
+<<<<<<< HEAD
   timing:
     dependency: transitive
     description:
@@ -632,6 +650,8 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.0.2"
+=======
+>>>>>>> beb60fe23a0c4969681ab622cb3dd34b3e1a2942
   typed_data:
     dependency: transitive
     description:
