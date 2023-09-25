@@ -15,7 +15,7 @@ class MainTextfield extends StatefulWidget {
 
 class _MainTextfieldState extends State<MainTextfield> {
   bool isTap = false;
-  double size = 32;
+
   @override
   Widget build(BuildContext context) {
     return AnimatedContainer(
