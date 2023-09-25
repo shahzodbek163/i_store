@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:i_store/src/model/table_model.dart';
+import 'package:i_store/src/utils/date_to_string.dart';
 
 class CustomTable extends StatelessWidget {
   final List<TableModel> tables;
@@ -119,7 +120,7 @@ class CustomTable extends StatelessWidget {
                           child: Text(
                             index == 0
                                 ? "Qo'shilgan sana"
-                                : tables[index - 1].addedDate.toString(),
+                                : tables[index - 1].addedDate,
                             style: TextStyle(
                               color: const Color(0xFF1D2433),
                               fontWeight: index == 0
