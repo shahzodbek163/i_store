@@ -44,6 +44,7 @@ dependencies:
   build_runner: '>=2.3.0 <4.0.0'
   json_serializable: ^6.7.0
   edu_badge_textfield: ^0.0.6
+  edu_selectable_part: ^0.1.5
 
 dev_dependencies:
   flutter_test:

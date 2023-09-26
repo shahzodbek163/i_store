@@ -1,9 +1,18 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:edu_selectable_part/edu_selectable_part.dart';
 
 class MainTextfield extends StatefulWidget {
   final String text;
-  const MainTextfield({super.key, required this.text});
+  final Function()? onAddTap;
+  final Function(String text)? textField;
+  const MainTextfield({
+    Key? key,
+    required this.text,
+    this.onAddTap,
+    this.textField,
+  }) : super(key: key);
 
   @override
   State<MainTextfield> createState() => _MainTextfieldState();
@@ -12,6 +21,16 @@ class MainTextfield extends StatefulWidget {
 class _MainTextfieldState extends State<MainTextfield> {
   bool isTap = false;
   double size = 32;
+  String textField(String text) {
+    return text;
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    widget.textField;
+  }
+
   @override
   Widget build(BuildContext context) {
     return AnimatedContainer(
@@ -90,6 +109,9 @@ class _MainTextfieldState extends State<MainTextfield> {
                           child: Padding(
                             padding: const EdgeInsets.symmetric(vertical: 12),
                             child: TextField(
+                              onChanged: (value) {
+                                widget.textField?.call(value);
+                              },
                               style: GoogleFonts.inter(
                                 color: const Color(0xFF344054),
                                 fontSize: 16 / 1.5,
@@ -103,23 +125,26 @@ class _MainTextfieldState extends State<MainTextfield> {
                             ),
                           ),
                         ),
-                        Container(
-                          alignment: Alignment.center,
-                          width: 103 / 1.5,
-                          height: double.infinity,
-                          decoration: const BoxDecoration(
-                            color: Color(0xFF4CAF50),
-                            borderRadius: BorderRadius.only(
-                              topLeft: Radius.circular(3),
-                              bottomLeft: Radius.circular(3),
+                        GestureDetector(
+                          onTap: widget.onAddTap,
+                          child: Container(
+                            alignment: Alignment.center,
+                            width: 103 / 1.5,
+                            height: double.infinity,
+                            decoration: const BoxDecoration(
+                              color: Color(0xFF4CAF50),
+                              borderRadius: BorderRadius.only(
+                                topLeft: Radius.circular(3),
+                                bottomLeft: Radius.circular(3),
+                              ),
                             ),
-                          ),
-                          child: Text(
-                            "Qo'shish",
-                            style: GoogleFonts.inter(
-                              fontWeight: FontWeight.w500,
-                              fontSize: 16 / 1.5,
-                              color: Colors.white,
+                            child: Text(
+                              "Qo'shish",
+                              style: GoogleFonts.inter(
+                                fontWeight: FontWeight.w500,
+                                fontSize: 16 / 1.5,
+                                color: Colors.white,
+                              ),
                             ),
                           ),
                         ),

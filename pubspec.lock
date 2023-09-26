@@ -201,6 +201,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.0.6"
+  edu_selectable_part:
+    dependency: "direct main"
+    description:
+      name: edu_selectable_part
+      sha256: db079812d76ca6c08645b03ca49b672c86cfdcee942436ad8c95af15fa199ab2
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.1.5"
   fake_async:
     dependency: transitive
     description:
