@@ -88,7 +88,7 @@ class _MainTextfieldState extends State<MainTextfield> {
                       children: [
                         Expanded(
                           child: Padding(
-                            padding: const EdgeInsets.symmetric(vertical: 12),
+                            padding: const EdgeInsets.symmetric(vertical: 4),
                             child: TextField(
                               style: GoogleFonts.inter(
                                 color: const Color(0xFF344054),

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:i_store/src/model/table_model.dart';
-import 'package:i_store/src/utils/date_to_string.dart';
 
 class CustomTable extends StatelessWidget {
   final List<TableModel> tables;
