@@ -20,6 +20,7 @@ class MainTextfield extends StatefulWidget {
 
 class _MainTextfieldState extends State<MainTextfield> {
   bool isTap = false;
+<<<<<<< HEAD
   double size = 32;
   String textField(String text) {
     return text;
@@ -30,6 +31,8 @@ class _MainTextfieldState extends State<MainTextfield> {
     super.initState();
     widget.textField;
   }
+=======
+>>>>>>> 0e73d0759e4af012f96d36a936135d0c079a16e3
 
   @override
   Widget build(BuildContext context) {
@@ -107,7 +110,7 @@ class _MainTextfieldState extends State<MainTextfield> {
                       children: [
                         Expanded(
                           child: Padding(
-                            padding: const EdgeInsets.symmetric(vertical: 12),
+                            padding: const EdgeInsets.symmetric(vertical: 4),
                             child: TextField(
                               onChanged: (value) {
                                 widget.textField?.call(value);
