@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:i_store/src/controller/blocs/device/device_type_bloc.dart';
 import 'package:i_store/src/model/table_model.dart';
+import 'package:i_store/src/view/widget/custom_table_row.dart';
 import 'package:i_store/src/view/widget/icon_text_widget.dart';
 import 'package:i_store/src/view/widget/main_textfield.dart';
 import 'package:i_store/src/view/widget/tables/table.dart';
@@ -89,46 +90,56 @@ class _MainDataScreenState extends State<MainDataScreen> {
               ),
             ),
             Expanded(
-              child: SingleChildScrollView(
-                child: Padding(
-                  padding: const EdgeInsets.only(
-                    top: 31 / 1.5,
-                    right: 200,
-                    left: 62,
-                  ),
-                  child: Column(
-                    children: [
-                      MainTextfield(
-                        text: "Tovar sotiladigan qurilmalar",
-                        textField: (text) {
-                          textEditingController.text = text;
-                        },
-                        onAddTap: () {
-                          deviceTypeBloc.add(
-                              DeviceTypeNew(name: textEditingController.text));
-                          deviceTypeBloc.add(LoadDeviceTypeList());
-                          print(textEditingController.text);
-                        },
-                      ),
-                      BlocBuilder<DeviceTypeBloc, DeviceTypeState>(
-                        bloc: deviceTypeBloc,
-                        builder: (context, state) {
-                          return CustomTable(
-                            tables: state is DeviceTypeListloadedState
-                                ? List.generate(
-                                    state.deviceList.length,
-                                    (index) => TableModel(
-                                        name: state.deviceList[index].name,
-                                        addedDate: state.deviceList[index].date,
-                                        user: "User",
-                                        id: state.deviceList[index].id),
-                                  )
-                                : [],
-                          );
-                        },
-                      ),
-                    ],
-                  ),
+              child: Padding(
+                padding: const EdgeInsets.only(
+                  top: 31 / 1.5,
+                  right: 200,
+                  left: 62,
+                ),
+                child: Column(
+                  children: [
+                    CustomTableRow(
+                      tapsList: const [
+                        "Tovar sotiladigan qurilmalar",
+                        "Tovar kategoriyalar",
+                        "Tovar turlari",
+                        "Kategoriya turlari",
+                        "Sotuv miqdor turlari",
+                        "Tovar firmalari",
+                      ],
+                      onChanged: (index) {},
+                    ),
+                    const SizedBox(height: 40),
+                    MainTextfield(
+                      text: "Tovar sotiladigan qurilmalar",
+                      textField: (text) {
+                        textEditingController.text = text;
+                      },
+                      onAddTap: () {
+                        deviceTypeBloc.add(
+                            DeviceTypeNew(name: textEditingController.text));
+                        deviceTypeBloc.add(LoadDeviceTypeList());
+                        print(textEditingController.text);
+                      },
+                    ),
+                    BlocBuilder<DeviceTypeBloc, DeviceTypeState>(
+                      bloc: deviceTypeBloc,
+                      builder: (context, state) {
+                        return CustomTable(
+                          tables: state is DeviceTypeListloadedState
+                              ? List.generate(
+                                  state.deviceList.length,
+                                  (index) => TableModel(
+                                      name: state.deviceList[index].name,
+                                      addedDate: state.deviceList[index].date,
+                                      user: "User",
+                                      id: state.deviceList[index].id),
+                                )
+                              : [],
+                        );
+                      },
+                    ),
+                  ],
                 ),
               ),
             ),

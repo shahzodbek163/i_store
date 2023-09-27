@@ -11,7 +11,7 @@ class CustomTable extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 35 * tables.length.toDouble() + 35,
+      height: 35 * tables.length + 35,
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(8),

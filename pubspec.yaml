@@ -45,6 +45,7 @@ dependencies:
   json_serializable: ^6.7.0
   edu_badge_textfield: ^0.0.6
   edu_selectable_part: ^0.1.5
+  syncfusion_flutter_datagrid: ^23.1.38
 
 dev_dependencies:
   flutter_test:

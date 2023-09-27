@@ -3,7 +3,7 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:i_store/src/view/controller/cubits/tab_selector/tab_selector_cubit.dart';
+import 'package:i_store/src/controller/cubits/tab_selector/tab_selector_cubit.dart';
 
 class CustomTableRow extends StatefulWidget {
   final List<String> tapsList;
@@ -41,26 +41,27 @@ class _CustomTableRowState extends State<CustomTableRow> {
             itemBuilder: (context, index) {
               return Padding(
                 padding: const EdgeInsets.only(right: 30 / 1.3),
-                child:
-                    InkWell(borderRadius: BorderRadius.circular(3), onTap: () {
-                  tabSelectorCubit.selector(index);
-                  widget.onChanged?.call(index);
-                  log(index.toString());
-                },
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 6),
-                          child: Text(
-                            widget.tapsList[index],
-                            style: GoogleFonts.inter(
-                              fontSize: 20 / 1.5,
-                              fontWeight: FontWeight.w500,
-                              color: state.selectedIndex == index
-                                  ? const Color(0xFFFF5C00)
-                                  : const Color(0xFF404E67),
-                            ),
-                          ),
-                        ), //komilov___
-                        x7),
+                child: InkWell(
+                  borderRadius: BorderRadius.circular(3),
+                  onTap: () {
+                    tabSelectorCubit.selector(index);
+                    widget.onChanged?.call(index);
+                    log(index.toString());
+                  },
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 6),
+                    child: Text(
+                      widget.tapsList[index],
+                      style: GoogleFonts.inter(
+                        fontSize: 20 / 1.5,
+                        fontWeight: FontWeight.w500,
+                        color: state.selectedIndex == index
+                            ? const Color(0xFFFF5C00)
+                            : const Color(0xFF404E67),
+                      ),
+                    ),
+                  ),
+                ),
               );
             },
           );
