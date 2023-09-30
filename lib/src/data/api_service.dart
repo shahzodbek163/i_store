@@ -1,10 +1,12 @@
 import 'package:i_store/src/domen/request/auth/auth_req_model.dart';
+import 'package:i_store/src/domen/request/categorynewreq/category_req_model.dart';
 import 'package:i_store/src/domen/request/facenew/face_new_req_model.dart';
 import 'package:i_store/src/domen/request/getbyid/get_by_id_req_model.dart';
 import 'package:i_store/src/domen/request/newdevice/new_device_req_model.dart';
 import 'package:i_store/src/domen/request/newemployee/new_employee_req_model.dart';
 import 'package:i_store/src/domen/request/onlynamereq/only_name_req_model.dart';
 import 'package:i_store/src/domen/request/product/product_req_model.dart';
+import 'package:i_store/src/domen/response/category/category_res_model.dart';
 import 'package:i_store/src/domen/response/deviceGetAll/device_get_all_res.dart';
 import 'package:i_store/src/domen/response/faceget/face_get_res_model.dart';
 import 'package:i_store/src/domen/response/login/login_res_model.dart';
@@ -52,19 +54,22 @@ abstract class ApiService {
   @POST("stuff/new")
   Future<NewDeviceResModel> newStuff(@Body() OnlyNameReqModel nameReqModel);
 
-  @GET("category-type")
+  @GET("category-types")
   Future<List<DeviceGetAllRes>> getCategoryType();
 
-  @GET("category-type/get")
+  @GET("category-types/get")
   Future<DeviceGetAllRes> getCategoryTypeById(@Body() GetById getById);
 
-  @POST("category-type/new")
-  Future<NewDeviceReqModel> newCategorytype(
-      @Body() OnlyNameReqModel onlyNameReqModel);
+  @POST("category-types/new")
+  Future<NewDeviceResModel> newCategorytype(
+      @Body() CategoryNewReqModel categoryNewReqModel);
 
   @POST("face/new")
   Future<NewDeviceResModel> newFace(@Body() FaceNewReqModel faceNewReqModel);
 
   @GET("face/get")
   Future<FaceGetResModel> getFaceById(@Body() GetById getById);
+
+  @GET("category")
+  Future<List<CategroyResModel>> getCategory();
 }

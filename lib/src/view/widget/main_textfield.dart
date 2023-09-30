@@ -71,20 +71,6 @@ class _MainTextfieldState extends State<MainTextfield> {
                     ),
                   ],
                 ),
-                const Row(
-                  children: [
-                    Icon(
-                      Icons.arrow_back_ios_new_rounded,
-                      size: 16 / 1.5,
-                      color: Color(0xFF404E67),
-                    ),
-                    Icon(
-                      Icons.arrow_forward_ios_rounded,
-                      size: 16 / 1.5,
-                      color: Color(0xFF404E67),
-                    ),
-                  ],
-                ),
               ],
             ),
             const SizedBox(
@@ -109,6 +95,7 @@ class _MainTextfieldState extends State<MainTextfield> {
                           child: Padding(
                             padding: const EdgeInsets.symmetric(vertical: 4),
                             child: TextField(
+                              onSubmitted: (value) => widget.onAddTap,
                               onChanged: (value) {
                                 widget.textField?.call(value);
                               },
@@ -125,7 +112,7 @@ class _MainTextfieldState extends State<MainTextfield> {
                             ),
                           ),
                         ),
-                        GestureDetector(
+                        InkWell(
                           onTap: widget.onAddTap,
                           child: Container(
                             alignment: Alignment.center,

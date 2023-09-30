@@ -300,7 +300,7 @@ class _ApiService implements ApiService {
     )
             .compose(
               _dio.options,
-              'category-type',
+              'category-types',
               queryParameters: queryParameters,
               data: _data,
             )
@@ -326,7 +326,7 @@ class _ApiService implements ApiService {
     )
             .compose(
               _dio.options,
-              'category-type/get',
+              'category-types/get',
               queryParameters: queryParameters,
               data: _data,
             )
@@ -336,26 +336,26 @@ class _ApiService implements ApiService {
   }
 
   @override
-  Future<NewDeviceReqModel> newCategorytype(onlyNameReqModel) async {
+  Future<NewDeviceResModel> newCategorytype(categoryNewReqModel) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
-    _data.addAll(onlyNameReqModel.toJson());
+    _data.addAll(categoryNewReqModel.toJson());
     final _result = await _dio
-        .fetch<Map<String, dynamic>>(_setStreamType<NewDeviceReqModel>(Options(
+        .fetch<Map<String, dynamic>>(_setStreamType<NewDeviceResModel>(Options(
       method: 'POST',
       headers: _headers,
       extra: _extra,
     )
             .compose(
               _dio.options,
-              'category-type/new',
+              'category-types/new',
               queryParameters: queryParameters,
               data: _data,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value = NewDeviceReqModel.fromJson(_result.data!);
+    final value = NewDeviceResModel.fromJson(_result.data!);
     return value;
   }
 
@@ -404,6 +404,32 @@ class _ApiService implements ApiService {
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = FaceGetResModel.fromJson(_result.data!);
+    return value;
+  }
+
+  @override
+  Future<List<CategroyResModel>> getCategory() async {
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final Map<String, dynamic>? _data = null;
+    final _result = await _dio
+        .fetch<List<dynamic>>(_setStreamType<List<CategroyResModel>>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              'category',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    var value = _result.data!
+        .map(
+            (dynamic i) => CategroyResModel.fromJson(i as Map<String, dynamic>))
+        .toList();
     return value;
   }
 

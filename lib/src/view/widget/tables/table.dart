@@ -1,190 +1,110 @@
 import 'package:flutter/material.dart';
-import 'package:i_store/src/model/table_model.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:i_store/src/controller/blocs/device/device_type_bloc.dart';
+import 'package:i_store/src/datagrid/model/employee_model.dart';
+import 'package:syncfusion_flutter_datagrid/datagrid.dart';
+import 'package:syncfusion_flutter_core/theme.dart';
+import 'package:i_store/src/datagrid/data/employee_data.dart';
 
-class CustomTable extends StatelessWidget {
-  final List<TableModel> tables;
+class CustomTable extends StatefulWidget {
   const CustomTable({
     super.key,
-    required this.tables,
   });
 
   @override
+  State<CustomTable> createState() => _CustomTableState();
+}
+
+class _CustomTableState extends State<CustomTable> {
+  List<EmployeeModel> employees = [];
+  late EmployeeData employeeDataSource;
+
+  @override
+  void initState() {
+    super.initState();
+    context.read<DeviceTypeBloc>().add(LoadDeviceTypeList());
+  }
+
+  final TextStyle headerTextStyle = const TextStyle(
+    color: Color(0xFF1D2433),
+    fontSize: 14,
+    fontWeight: FontWeight.w600,
+  );
+  @override
   Widget build(BuildContext context) {
     return Container(
-      height: 35 * tables.length + 35,
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(8),
-        boxShadow: const [BoxShadow(blurRadius: 6, color: Colors.black12)],
+      height: double.infinity,
+      decoration: const BoxDecoration(
+        color: Colors.transparent,
       ),
-      child: Row(
-        children: [
-          Flexible(
-            flex: 6,
-            child: Container(
-              width: double.infinity,
-              height: double.infinity,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(8),
-              ),
-              child: Row(
-                children: [
-                  Column(
-                    children: List.generate(
-                      tables.length + 1,
-                      (index) => Container(
-                        width: 40,
-                        height: 35,
-                        alignment: index == 0
-                            ? Alignment.center
-                            : const Alignment(-0.4, 0),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(index == 0 ? 8 : 0),
-                            bottomLeft:
-                                Radius.circular(index == tables.length ? 8 : 0),
-                          ),
-                          color: index == 0
-                              ? const Color(0xFFF1F3F9)
-                              : index % 2 == 1
-                                  ? Colors.white
-                                  : const Color(0xFFF8F9FC),
-                        ),
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(10),
+        child: SfDataGridTheme(
+            data: SfDataGridThemeData(
+              gridLineStrokeWidth: 0,
+              headerColor: const Color(0xFFF1F3F9),
+              frozenPaneLineWidth: 0,
+              gridLineColor: Colors.transparent,
+            ),
+            child: BlocBuilder(
+              bloc: context.read<DeviceTypeBloc>(),
+              builder: (context, state) {
+                return SfDataGrid(
+                  selectionMode: SelectionMode.single,
+                  columnWidthMode: ColumnWidthMode.fill,
+                  allowEditing: true,
+                  columnResizeMode: ColumnResizeMode.onResize,
+                  showHorizontalScrollbar: true,
+                  rowsPerPage: 10,
+                  headerRowHeight: 35,
+                  rowHeight: 35,
+                  source: EmployeeData(state is DeviceTypeListloadedState
+                      ? List.generate(
+                          state.deviceList.length,
+                          (index) => EmployeeModel(
+                              id: state.deviceList[index].id,
+                              nomi: state.deviceList[index].name,
+                              date: state.deviceList[index].date,
+                              user: ""))
+                      : []),
+                  columns: [
+                    GridColumn(
+                      columnName: "id",
+                      label: Container(
+                        padding: const EdgeInsets.only(left: 8),
+                        alignment: Alignment.centerLeft,
+                        child: Text("№", style: headerTextStyle),
+                      ),
+                    ),
+                    GridColumn(
+                      columnName: "name",
+                      label: Container(
+                        alignment: Alignment.centerLeft,
+                        child: Text("Nomi", style: headerTextStyle),
+                      ),
+                    ),
+                    GridColumn(
+                      columnName: "date",
+                      label: Container(
+                        width: double.infinity,
+                        alignment: Alignment.centerLeft,
+                        child: Text("Qo’shilgan sana", style: headerTextStyle),
+                      ),
+                    ),
+                    GridColumn(
+                      columnName: "user",
+                      label: Container(
+                        alignment: Alignment.centerLeft,
                         child: Text(
-                          index == 0 ? "№" : index.toString(),
-                          style: TextStyle(
-                            color: const Color(0xFF1D2433),
-                            fontWeight:
-                                index == 0 ? FontWeight.w600 : FontWeight.w400,
-                          ),
+                          "User",
+                          style: headerTextStyle,
                         ),
                       ),
                     ),
-                  ),
-                  Expanded(
-                    child: Column(
-                      children: List.generate(
-                        tables.length + 1,
-                        (index) => Container(
-                          height: 35,
-                          width: double.infinity,
-                          alignment: Alignment.centerLeft,
-                          decoration: BoxDecoration(
-                            color: index == 0
-                                ? const Color(0xFFF1F3F9)
-                                : index % 2 == 1
-                                    ? Colors.white
-                                    : const Color(0xFFF8F9FC),
-                          ),
-                          child: Text(
-                            index == 0 ? "Name" : tables[index - 1].name,
-                            style: TextStyle(
-                              color: const Color(0xFF1D2433),
-                              fontWeight: index == 0
-                                  ? FontWeight.w600
-                                  : FontWeight.w400,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
-          Flexible(
-            flex: 8,
-            child: SizedBox(
-              width: double.infinity,
-              height: double.infinity,
-              child: Row(
-                children: [
-                  Flexible(
-                    flex: 5,
-                    child: Column(
-                      children: List.generate(
-                        tables.length + 1,
-                        (index) => Container(
-                          height: 35,
-                          width: double.infinity,
-                          alignment: Alignment.centerLeft,
-                          decoration: BoxDecoration(
-                            color: index == 0
-                                ? const Color(0xFFF1F3F9)
-                                : index % 2 == 1
-                                    ? Colors.white
-                                    : const Color(0xFFF8F9FC),
-                          ),
-                          child: Text(
-                            index == 0
-                                ? "Qo'shilgan sana"
-                                : tables[index - 1].addedDate,
-                            style: TextStyle(
-                              color: const Color(0xFF1D2433),
-                              fontWeight: index == 0
-                                  ? FontWeight.w600
-                                  : FontWeight.w400,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                  Flexible(
-                    flex: 7,
-                    child: Column(
-                      children: List.generate(
-                        tables.length + 1,
-                        (index) => Container(
-                            height: 35,
-                            alignment: Alignment.centerLeft,
-                            width: double.infinity,
-                            decoration: BoxDecoration(
-                                color: index == 0
-                                    ? const Color(0xFFF1F3F9)
-                                    : index % 2 == 1
-                                        ? Colors.white
-                                        : const Color(0xFFF8F9FC),
-                                borderRadius: BorderRadius.only(
-                                  topRight: Radius.circular(index == 0 ? 8 : 0),
-                                  bottomRight: Radius.circular(
-                                      index == tables.length ? 8 : 0),
-                                )),
-                            child: Row(
-                              children: [
-                                Text(
-                                  index == 0 ? "User" : tables[index - 1].user,
-                                  style: TextStyle(
-                                    color: const Color(0xFF1D2433),
-                                    fontWeight: index == 0
-                                        ? FontWeight.w600
-                                        : FontWeight.w400,
-                                  ),
-                                ),
-                                const Spacer(),
-                                index != 0
-                                    ? InkWell(
-                                        onTap: () {},
-                                        child: const SizedBox(
-                                            width: 36,
-                                            child: Icon(
-                                              Icons.more_vert,
-                                              color: Color.fromARGB(
-                                                  158, 10, 14, 54),
-                                            )),
-                                      )
-                                    : const SizedBox(),
-                              ],
-                            )),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
-        ],
+                  ],
+                );
+              },
+            )),
       ),
     );
   }

@@ -3,7 +3,12 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:i_store/src/controller/blocs/device/device_type_bloc.dart';
+import 'package:i_store/src/controller/cubits/part/part_cubit.dart';
+import 'package:i_store/src/datagrid/model/employee_model.dart';
 import 'package:i_store/src/model/table_model.dart';
+import 'package:i_store/src/view/parts/category_part.dart';
+import 'package:i_store/src/view/parts/device_categories_part.dart';
+import 'package:i_store/src/view/parts/device_type_part.dart';
 import 'package:i_store/src/view/widget/custom_table_row.dart';
 import 'package:i_store/src/view/widget/icon_text_widget.dart';
 import 'package:i_store/src/view/widget/main_textfield.dart';
@@ -22,12 +27,14 @@ class _MainDataScreenState extends State<MainDataScreen> {
   @override
   void initState() {
     super.initState();
+
     deviceTypeBloc.add(LoadDeviceTypeList());
+    setState(() {});
   }
 
+  final partCubit = PartCubit();
   @override
   Widget build(BuildContext context) {
-    final textEditingController = TextEditingController();
     return Scaffold(
         backgroundColor: const Color(0xFFF6F7FB),
         extendBodyBehindAppBar: true,
@@ -107,37 +114,26 @@ class _MainDataScreenState extends State<MainDataScreen> {
                         "Sotuv miqdor turlari",
                         "Tovar firmalari",
                       ],
-                      onChanged: (index) {},
+                      onChanged: (index) {
+                        partCubit.change(index);
+                      },
                     ),
                     const SizedBox(height: 40),
-                    MainTextfield(
-                      text: "Tovar sotiladigan qurilmalar",
-                      textField: (text) {
-                        textEditingController.text = text;
-                      },
-                      onAddTap: () {
-                        deviceTypeBloc.add(
-                            DeviceTypeNew(name: textEditingController.text));
-                        deviceTypeBloc.add(LoadDeviceTypeList());
-                        print(textEditingController.text);
-                      },
-                    ),
-                    BlocBuilder<DeviceTypeBloc, DeviceTypeState>(
-                      bloc: deviceTypeBloc,
-                      builder: (context, state) {
-                        return CustomTable(
-                          tables: state is DeviceTypeListloadedState
-                              ? List.generate(
-                                  state.deviceList.length,
-                                  (index) => TableModel(
-                                      name: state.deviceList[index].name,
-                                      addedDate: state.deviceList[index].date,
-                                      user: "User",
-                                      id: state.deviceList[index].id),
-                                )
-                              : [],
-                        );
-                      },
+                    Expanded(
+                      child: BlocBuilder<PartCubit, PartState>(
+                        bloc: partCubit,
+                        builder: (context, state) {
+                          if (state is PartIndex) {
+                            if (state.index == 1) {
+                              return const DeviceCategoryPart();
+                            }
+                            if (state.index == 2) {
+                              return const DeviceCategoriesPart();
+                            }
+                          }
+                          return const DeviceTypePart();
+                        },
+                      ),
                     ),
                   ],
                 ),
