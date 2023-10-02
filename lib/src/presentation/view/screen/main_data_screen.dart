@@ -5,15 +5,12 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:i_store/src/controller/blocs/device/device_type_bloc.dart';
 import 'package:i_store/src/controller/cubits/part/part_cubit.dart';
 import 'package:i_store/src/datagrid/model/employee_model.dart';
-import 'package:i_store/src/model/table_model.dart';
-import 'package:i_store/src/view/parts/category_part.dart';
-import 'package:i_store/src/view/parts/device_categories_part.dart';
-import 'package:i_store/src/view/parts/device_type_part.dart';
-import 'package:i_store/src/view/widget/custom_table_row.dart';
-import 'package:i_store/src/view/widget/icon_text_widget.dart';
-import 'package:i_store/src/view/widget/main_textfield.dart';
-import 'package:i_store/src/view/widget/tables/table.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:i_store/src/presentation/view/parts/category_part.dart';
+import 'package:i_store/src/presentation/view/parts/device_categories_part.dart';
+import 'package:i_store/src/presentation/view/parts/device_type_part.dart';
+import 'package:i_store/src/presentation/view/widget/custom_table_row.dart';
+import 'package:i_store/src/presentation/view/widget/icon_text_widget.dart';
 
 class MainDataScreen extends StatefulWidget {
   const MainDataScreen({super.key});

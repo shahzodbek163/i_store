@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:i_store/src/controller/blocs/device/device_type_bloc.dart';
-import 'package:i_store/src/view/widget/main_textfield.dart';
-import 'package:i_store/src/view/widget/tables/table.dart';
+import 'package:i_store/src/presentation/view/widget/main_textfield.dart';
+
 import 'package:syncfusion_flutter_core/theme.dart';
 import 'package:i_store/src/datagrid/data/employee_data.dart';
 import 'package:syncfusion_flutter_datagrid/datagrid.dart';
