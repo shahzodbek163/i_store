@@ -190,13 +190,13 @@ class _ApiService implements ApiService {
   }
 
   @override
-  Future<List<DeviceGetAllRes>> getUnit() async {
+  Future<List<UnitGetAllRes>> getUnit() async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final Map<String, dynamic>? _data = null;
     final _result = await _dio
-        .fetch<List<dynamic>>(_setStreamType<List<DeviceGetAllRes>>(Options(
+        .fetch<List<dynamic>>(_setStreamType<List<UnitGetAllRes>>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
@@ -209,7 +209,7 @@ class _ApiService implements ApiService {
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     var value = _result.data!
-        .map((dynamic i) => DeviceGetAllRes.fromJson(i as Map<String, dynamic>))
+        .map((dynamic i) => UnitGetAllRes.fromJson(i as Map<String, dynamic>))
         .toList();
     return value;
   }
@@ -430,6 +430,81 @@ class _ApiService implements ApiService {
         .map(
             (dynamic i) => CategroyResModel.fromJson(i as Map<String, dynamic>))
         .toList();
+    return value;
+  }
+
+  @override
+  Future<List<FirmGetAllRes>> getFirmAll() async {
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final Map<String, dynamic>? _data = null;
+    final _result = await _dio
+        .fetch<List<dynamic>>(_setStreamType<List<FirmGetAllRes>>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              'firm',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    var value = _result.data!
+        .map((dynamic i) => FirmGetAllRes.fromJson(i as Map<String, dynamic>))
+        .toList();
+    return value;
+  }
+
+  @override
+  Future<List<FirmGetAllRes>> getFirmById(getById) async {
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    _data.addAll(getById.toJson());
+    final _result = await _dio
+        .fetch<List<dynamic>>(_setStreamType<List<FirmGetAllRes>>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              'firm/get',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    var value = _result.data!
+        .map((dynamic i) => FirmGetAllRes.fromJson(i as Map<String, dynamic>))
+        .toList();
+    return value;
+  }
+
+  @override
+  Future<NewDeviceResModel> newFirm(firmNewReqModel) async {
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    _data.addAll(firmNewReqModel.toJson());
+    final _result = await _dio
+        .fetch<Map<String, dynamic>>(_setStreamType<NewDeviceResModel>(Options(
+      method: 'POST',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              'firm/new',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    final value = NewDeviceResModel.fromJson(_result.data!);
     return value;
   }
 

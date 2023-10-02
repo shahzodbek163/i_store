@@ -51,13 +51,13 @@ class TextFieldWidget extends StatelessWidget {
               borderRadius: BorderRadius.circular(5),
             ),
             child: Padding(
-              padding: const EdgeInsets.only(bottom: 12),
+              padding: const EdgeInsets.only(bottom: 10),
               child: TextField(
                 onChanged: (value) {
                   onChange?.call(value);
                 },
                 style: const TextStyle(
-                  fontSize: 14,
+                  fontSize: 16 / 1.2,
                 ),
                 decoration: const InputDecoration(
                   border: UnderlineInputBorder(borderSide: BorderSide.none),

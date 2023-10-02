@@ -1,6 +1,7 @@
 import 'package:i_store/src/domen/request/auth/auth_req_model.dart';
 import 'package:i_store/src/domen/request/categorynewreq/category_req_model.dart';
 import 'package:i_store/src/domen/request/facenew/face_new_req_model.dart';
+import 'package:i_store/src/domen/request/firmnewreq/firm_new_req_model.dart';
 import 'package:i_store/src/domen/request/getbyid/get_by_id_req_model.dart';
 import 'package:i_store/src/domen/request/newdevice/new_device_req_model.dart';
 import 'package:i_store/src/domen/request/newemployee/new_employee_req_model.dart';
@@ -9,9 +10,11 @@ import 'package:i_store/src/domen/request/product/product_req_model.dart';
 import 'package:i_store/src/domen/response/category/category_res_model.dart';
 import 'package:i_store/src/domen/response/deviceGetAll/device_get_all_res.dart';
 import 'package:i_store/src/domen/response/faceget/face_get_res_model.dart';
+import 'package:i_store/src/domen/response/firmgetall/firm_get_all_res.dart';
 import 'package:i_store/src/domen/response/login/login_res_model.dart';
 import 'package:i_store/src/domen/response/newdevice/new_device_res_model.dart';
 import 'package:i_store/src/domen/response/register/register_res_model.dart';
+import 'package:i_store/src/domen/response/unitGetAll/unit_get_all_res.dart';
 import 'package:retrofit/http.dart';
 import 'package:dio/dio.dart';
 
@@ -43,7 +46,7 @@ abstract class ApiService {
   Future<NewDeviceResModel> newUnit(@Body() OnlyNameReqModel nameReqModel);
 
   @GET("unit/")
-  Future<List<DeviceGetAllRes>> getUnit();
+  Future<List<UnitGetAllRes>> getUnit();
 
   @GET("unit/get")
   Future<DeviceGetAllRes> getUnitById(@Body() GetById getById);
@@ -72,4 +75,13 @@ abstract class ApiService {
 
   @GET("category")
   Future<List<CategroyResModel>> getCategory();
+
+  @GET("firm")
+  Future<List<FirmGetAllRes>> getFirmAll();
+
+  @GET("firm/get")
+  Future<List<FirmGetAllRes>> getFirmById(@Body() GetById getById);
+
+  @POST("firm/new")
+  Future<NewDeviceResModel> newFirm(@Body() FirmNewReqModel firmNewReqModel);
 }

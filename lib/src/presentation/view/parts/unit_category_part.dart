@@ -1,32 +1,32 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:i_store/src/controller/blocs/device/device_type_bloc.dart';
-import 'package:i_store/src/presentation/view/widget/main_textfield.dart';
-
-import 'package:syncfusion_flutter_core/theme.dart';
+import 'package:i_store/src/controller/blocs/unit/unit_bloc.dart';
 import 'package:i_store/src/datagrid/data/employee_data.dart';
-import 'package:syncfusion_flutter_datagrid/datagrid.dart';
 import 'package:i_store/src/datagrid/model/employee_model.dart';
+import 'package:i_store/src/presentation/view/widget/main_textfield.dart';
+import 'package:i_store/src/utils/app_const.dart';
+import 'package:syncfusion_flutter_core/theme.dart';
+import 'package:syncfusion_flutter_datagrid/datagrid.dart';
 
-class DeviceTypePart extends StatefulWidget {
-  const DeviceTypePart({super.key});
+class UnitCategoryPart extends StatefulWidget {
+  const UnitCategoryPart({super.key});
 
   @override
-  State<DeviceTypePart> createState() => _DeviceTypePartState();
+  State<UnitCategoryPart> createState() => _UnitCategoryPartState();
 }
 
-final deviceTypeBloc = DeviceTypeBloc();
-final textEditingController = TextEditingController();
+class _UnitCategoryPartState extends State<UnitCategoryPart> {
+  final unitTypeBloc = UnitBloc();
+  final textEditingController = TextEditingController();
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    unitTypeBloc.add(LoadUnitTypeList());
+  }
 
-class _DeviceTypePartState extends State<DeviceTypePart> {
-  final TextStyle headerTextStyle = const TextStyle(
-    color: Color(0xFF1D2433),
-    fontSize: 14,
-    fontWeight: FontWeight.w600,
-  );
   @override
   Widget build(BuildContext context) {
-    deviceTypeBloc.add(LoadDeviceTypeList());
     return Padding(
       padding: const EdgeInsets.only(right: 180),
       child: Column(
@@ -37,9 +37,8 @@ class _DeviceTypePartState extends State<DeviceTypePart> {
               textEditingController.text = text;
             },
             onAddTap: () {
-              deviceTypeBloc
-                  .add(DeviceTypeNew(name: textEditingController.text));
-              deviceTypeBloc.add(LoadDeviceTypeList());
+              unitTypeBloc.add(UnitTypeNew(name: textEditingController.text));
+              unitTypeBloc.add(LoadUnitTypeList());
               setState(() {});
             },
           ),
@@ -55,8 +54,8 @@ class _DeviceTypePartState extends State<DeviceTypePart> {
                       frozenPaneLineWidth: 0,
                       gridLineColor: Colors.transparent,
                     ),
-                    child: BlocBuilder(
-                      bloc: deviceTypeBloc,
+                    child: BlocBuilder<UnitBloc, UnitState>(
+                      bloc: unitTypeBloc,
                       builder: (context, state) {
                         return SfDataGrid(
                           selectionMode: SelectionMode.single,
@@ -67,24 +66,23 @@ class _DeviceTypePartState extends State<DeviceTypePart> {
                           rowsPerPage: 10,
                           headerRowHeight: 35,
                           rowHeight: 35,
-                          source:
-                              EmployeeData(state is DeviceTypeListloadedState
-                                  ? List.generate(
-                                      state.deviceList.length,
-                                      (index) => EmployeeModel(
-                                          id: index + 1,
-                                          nomi: state.deviceList[index].name,
-                                          date: state.deviceList[index].date,
-                                          user: ""),
-                                    )
-                                  : []),
+                          source: EmployeeData(state is UnitLoadedState
+                              ? List.generate(
+                                  state.unitCategoryList.length,
+                                  (index) => EmployeeModel(
+                                      id: index + 1,
+                                      nomi: state.unitCategoryList[index].name,
+                                      date: state.unitCategoryList[index].date,
+                                      user: ""),
+                                )
+                              : []),
                           columns: [
                             GridColumn(
                               columnName: "id",
                               label: Container(
                                 padding: const EdgeInsets.only(left: 8),
                                 alignment: Alignment.centerLeft,
-                                child: Text("№", style: headerTextStyle),
+                                child: const Text("№", style: headerTextStyle),
                               ),
                             ),
                             GridColumn(
@@ -99,7 +97,7 @@ class _DeviceTypePartState extends State<DeviceTypePart> {
                               label: Container(
                                 width: double.infinity,
                                 alignment: Alignment.centerLeft,
-                                child: Text("Qo’shilgan sana",
+                                child: const Text("Qo’shilgan sana",
                                     style: headerTextStyle),
                               ),
                             ),
@@ -107,7 +105,7 @@ class _DeviceTypePartState extends State<DeviceTypePart> {
                               columnName: "user",
                               label: Container(
                                 alignment: Alignment.centerLeft,
-                                child: Text(
+                                child: const Text(
                                   "User",
                                   style: headerTextStyle,
                                 ),

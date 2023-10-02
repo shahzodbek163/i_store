@@ -4,11 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:i_store/src/controller/blocs/device/device_type_bloc.dart';
 import 'package:i_store/src/controller/cubits/part/part_cubit.dart';
-import 'package:i_store/src/datagrid/model/employee_model.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:i_store/src/presentation/view/parts/category_part.dart';
 import 'package:i_store/src/presentation/view/parts/device_categories_part.dart';
 import 'package:i_store/src/presentation/view/parts/device_type_part.dart';
+import 'package:i_store/src/presentation/view/parts/firm_category_part.dart';
+import 'package:i_store/src/presentation/view/parts/unit_category_part.dart';
 import 'package:i_store/src/presentation/view/widget/custom_table_row.dart';
 import 'package:i_store/src/presentation/view/widget/icon_text_widget.dart';
 
@@ -97,7 +98,7 @@ class _MainDataScreenState extends State<MainDataScreen> {
               child: Padding(
                 padding: const EdgeInsets.only(
                   top: 31 / 1.5,
-                  right: 200,
+                  right: 20,
                   left: 62,
                 ),
                 child: Column(
@@ -110,6 +111,7 @@ class _MainDataScreenState extends State<MainDataScreen> {
                         "Kategoriya turlari",
                         "Sotuv miqdor turlari",
                         "Tovar firmalari",
+                        "Lavozimlar",
                       ],
                       onChanged: (index) {
                         partCubit.change(index);
@@ -126,6 +128,12 @@ class _MainDataScreenState extends State<MainDataScreen> {
                             }
                             if (state.index == 2) {
                               return const DeviceCategoriesPart();
+                            }
+                            if (state.index == 4) {
+                              return const UnitCategoryPart();
+                            }
+                            if (state.index == 5) {
+                              return const FrimCategoryPart();
                             }
                           }
                           return const DeviceTypePart();

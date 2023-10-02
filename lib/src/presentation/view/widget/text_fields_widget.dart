@@ -1,7 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:edu_badge_textfield/edu_badge_textfield.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:i_store/src/presentation/view/widget/text_field_widget.dart';
 
 class TextFieldsWidget extends StatefulWidget {
@@ -31,7 +31,7 @@ class _TextFieldsWidgetState extends State<TextFieldsWidget> {
   Widget build(BuildContext context) {
     return AnimatedContainer(
       duration: const Duration(milliseconds: 200),
-      height: isTap ? 80 : 28,
+      height: isTap ? 90 : 28,
       child: ListView(
         physics: const NeverScrollableScrollPhysics(),
         children: [
@@ -100,9 +100,18 @@ class _TextFieldsWidgetState extends State<TextFieldsWidget> {
                 child: Container(
                   width: 149 / 1.5,
                   height: 44 / 1.4,
+                  alignment: Alignment.center,
                   decoration: BoxDecoration(
                     color: const Color(0xFF4CAF50),
                     borderRadius: BorderRadius.circular(4),
+                  ),
+                  child: Text(
+                    "Qo'shish",
+                    style: GoogleFonts.inter(
+                      color: Colors.white,
+                      fontWeight: FontWeight.w500,
+                      fontSize: 16 / 1.4,
+                    ),
                   ),
                 ),
               ),
