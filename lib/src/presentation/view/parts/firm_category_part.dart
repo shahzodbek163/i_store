@@ -94,15 +94,17 @@ class _FrimCategoryPartState extends State<FrimCategoryPart> {
                             ? List.generate(
                                 state.firmCategoryList.length,
                                 (index) => FrimDataGridModel(
-                                    id: index + 1,
-                                    nomi: state.firmCategoryList[index].name,
-                                    address:
-                                        state.firmCategoryList[index].address,
-                                    telefon: state.firmCategoryList[index].tel,
-                                    email: state.firmCategoryList[index].email,
-                                    web: state.firmCategoryList[index].web,
-                                    date: state.firmCategoryList[index].date,
-                                    user: ""),
+                                  id: index + 1,
+                                  nomi: state.firmCategoryList[index].name,
+                                  address:
+                                      state.firmCategoryList[index].address,
+                                  telefon: state.firmCategoryList[index].tel,
+                                  email: state.firmCategoryList[index].email,
+                                  web: state.firmCategoryList[index].web,
+                                  date: state.firmCategoryList[index].date,
+                                  user: state
+                                      .firmCategoryList[index].user.username,
+                                ),
                               )
                             : []),
                         columns: [

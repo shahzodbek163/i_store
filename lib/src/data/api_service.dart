@@ -14,6 +14,7 @@ import 'package:i_store/src/domen/response/firmgetall/firm_get_all_res.dart';
 import 'package:i_store/src/domen/response/login/login_res_model.dart';
 import 'package:i_store/src/domen/response/newdevice/new_device_res_model.dart';
 import 'package:i_store/src/domen/response/register/register_res_model.dart';
+import 'package:i_store/src/domen/response/stuffmodel/stuff_get_all_res.dart';
 import 'package:i_store/src/domen/response/unitGetAll/unit_get_all_res.dart';
 import 'package:retrofit/http.dart';
 import 'package:dio/dio.dart';
@@ -53,6 +54,9 @@ abstract class ApiService {
 
   @POST("product/new")
   Future<NewDeviceResModel> newProduct(@Body() ProductReqModel productReqModel);
+
+  @GET("stuff")
+  Future<List<StuffGetAllResModel>> getAllStuff();
 
   @POST("stuff/new")
   Future<NewDeviceResModel> newStuff(@Body() OnlyNameReqModel nameReqModel);

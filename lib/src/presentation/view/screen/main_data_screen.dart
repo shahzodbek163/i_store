@@ -9,6 +9,7 @@ import 'package:i_store/src/presentation/view/parts/category_part.dart';
 import 'package:i_store/src/presentation/view/parts/device_categories_part.dart';
 import 'package:i_store/src/presentation/view/parts/device_type_part.dart';
 import 'package:i_store/src/presentation/view/parts/firm_category_part.dart';
+import 'package:i_store/src/presentation/view/parts/stuff_part.dart';
 import 'package:i_store/src/presentation/view/parts/unit_category_part.dart';
 import 'package:i_store/src/presentation/view/widget/custom_table_row.dart';
 import 'package:i_store/src/presentation/view/widget/icon_text_widget.dart';
@@ -134,6 +135,9 @@ class _MainDataScreenState extends State<MainDataScreen> {
                             }
                             if (state.index == 5) {
                               return const FrimCategoryPart();
+                            }
+                            if (state.index == 6) {
+                              return const StuffPart();
                             }
                           }
                           return const DeviceTypePart();

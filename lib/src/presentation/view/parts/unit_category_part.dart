@@ -70,10 +70,12 @@ class _UnitCategoryPartState extends State<UnitCategoryPart> {
                               ? List.generate(
                                   state.unitCategoryList.length,
                                   (index) => EmployeeModel(
-                                      id: index + 1,
-                                      nomi: state.unitCategoryList[index].name,
-                                      date: state.unitCategoryList[index].date,
-                                      user: ""),
+                                    id: index + 1,
+                                    nomi: state.unitCategoryList[index].name,
+                                    date: state.unitCategoryList[index].date,
+                                    user: state
+                                        .unitCategoryList[index].user.username,
+                                  ),
                                 )
                               : []),
                           columns: [
@@ -89,7 +91,8 @@ class _UnitCategoryPartState extends State<UnitCategoryPart> {
                               columnName: "name",
                               label: Container(
                                 alignment: Alignment.centerLeft,
-                                child: Text("Nomi", style: headerTextStyle),
+                                child:
+                                    const Text("Nomi", style: headerTextStyle),
                               ),
                             ),
                             GridColumn(
