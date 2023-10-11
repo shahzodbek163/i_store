@@ -3,8 +3,13 @@ import 'package:flutter/material.dart';
 class TextFieldWidget extends StatelessWidget {
   final String text;
   final Function(String text)? onChange;
+  final bool isNoneRequared;
 
-  const TextFieldWidget({super.key, this.onChange, required this.text});
+  const TextFieldWidget(
+      {super.key,
+      this.onChange,
+      required this.text,
+      this.isNoneRequared = false});
 
   @override
   Widget build(BuildContext context) {
@@ -20,12 +25,13 @@ class TextFieldWidget extends StatelessWidget {
                 text,
                 style: const TextStyle(
                   fontWeight: FontWeight.w500,
+                  fontSize: 20 / 1.5,
                   color: Color(0xFF344054),
                 ),
               ),
-              const Text(
-                " *",
-                style: TextStyle(
+              Text(
+                isNoneRequared ? "" : " *",
+                style: const TextStyle(
                   color: Color(0xFFFF0000),
                 ),
               ),

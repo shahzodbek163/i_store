@@ -13,7 +13,7 @@ class _ApiService implements ApiService {
     this._dio, {
     this.baseUrl,
   }) {
-    baseUrl ??= 'http://192.168.1.2:8080/api/';
+    baseUrl ??= 'https://192.168.1.5:8080/api/';
   }
 
   final Dio _dio;
@@ -21,7 +21,7 @@ class _ApiService implements ApiService {
   String? baseUrl;
 
   @override
-  Future<LoginResModel> login(authReqModel) async {
+  Future<LoginResModel> login(AuthReqModel authReqModel) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
@@ -39,13 +39,17 @@ class _ApiService implements ApiService {
               queryParameters: queryParameters,
               data: _data,
             )
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
     final value = LoginResModel.fromJson(_result.data!);
     return value;
   }
 
   @override
-  Future<RegisterResModel> register(authReqModel) async {
+  Future<RegisterResModel> register(AuthReqModel authReqModel) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
@@ -63,7 +67,11 @@ class _ApiService implements ApiService {
               queryParameters: queryParameters,
               data: _data,
             )
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
     final value = RegisterResModel.fromJson(_result.data!);
     return value;
   }
@@ -86,7 +94,11 @@ class _ApiService implements ApiService {
               queryParameters: queryParameters,
               data: _data,
             )
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
     var value = _result.data!
         .map((dynamic i) => DeviceGetAllRes.fromJson(i as Map<String, dynamic>))
         .toList();
@@ -94,7 +106,7 @@ class _ApiService implements ApiService {
   }
 
   @override
-  Future<DeviceGetAllRes> getById(getById) async {
+  Future<DeviceGetAllRes> getById(GetById getById) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
@@ -112,13 +124,17 @@ class _ApiService implements ApiService {
               queryParameters: queryParameters,
               data: _data,
             )
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
     final value = DeviceGetAllRes.fromJson(_result.data!);
     return value;
   }
 
   @override
-  Future<NewDeviceResModel> newDevice(deviceReqModel) async {
+  Future<NewDeviceResModel> newDevice(NewDeviceReqModel deviceReqModel) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
@@ -136,13 +152,47 @@ class _ApiService implements ApiService {
               queryParameters: queryParameters,
               data: _data,
             )
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
     final value = NewDeviceResModel.fromJson(_result.data!);
     return value;
   }
 
   @override
-  Future<NewDeviceResModel> newEmployee(employeeModel) async {
+  Future<List<EmploeeGetAllRes>> getEmploeeAll() async {
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final Map<String, dynamic>? _data = null;
+    final _result = await _dio
+        .fetch<List<dynamic>>(_setStreamType<List<EmploeeGetAllRes>>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              'employee',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
+    var value = _result.data!
+        .map(
+            (dynamic i) => EmploeeGetAllRes.fromJson(i as Map<String, dynamic>))
+        .toList();
+    return value;
+  }
+
+  @override
+  Future<NewDeviceResModel> newEmployee(NewEmployeeModel employeeModel) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
@@ -160,13 +210,17 @@ class _ApiService implements ApiService {
               queryParameters: queryParameters,
               data: _data,
             )
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
     final value = NewDeviceResModel.fromJson(_result.data!);
     return value;
   }
 
   @override
-  Future<NewDeviceResModel> newUnit(nameReqModel) async {
+  Future<NewDeviceResModel> newUnit(OnlyNameReqModel nameReqModel) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
@@ -184,7 +238,11 @@ class _ApiService implements ApiService {
               queryParameters: queryParameters,
               data: _data,
             )
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
     final value = NewDeviceResModel.fromJson(_result.data!);
     return value;
   }
@@ -207,7 +265,11 @@ class _ApiService implements ApiService {
               queryParameters: queryParameters,
               data: _data,
             )
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
     var value = _result.data!
         .map((dynamic i) => UnitGetAllRes.fromJson(i as Map<String, dynamic>))
         .toList();
@@ -215,7 +277,7 @@ class _ApiService implements ApiService {
   }
 
   @override
-  Future<DeviceGetAllRes> getUnitById(getById) async {
+  Future<DeviceGetAllRes> getUnitById(GetById getById) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
@@ -233,13 +295,17 @@ class _ApiService implements ApiService {
               queryParameters: queryParameters,
               data: _data,
             )
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
     final value = DeviceGetAllRes.fromJson(_result.data!);
     return value;
   }
 
   @override
-  Future<NewDeviceResModel> newProduct(productReqModel) async {
+  Future<NewDeviceResModel> newProduct(ProductReqModel productReqModel) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
@@ -257,7 +323,11 @@ class _ApiService implements ApiService {
               queryParameters: queryParameters,
               data: _data,
             )
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
     final value = NewDeviceResModel.fromJson(_result.data!);
     return value;
   }
@@ -280,7 +350,11 @@ class _ApiService implements ApiService {
               queryParameters: queryParameters,
               data: _data,
             )
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
     var value = _result.data!
         .map((dynamic i) =>
             StuffGetAllResModel.fromJson(i as Map<String, dynamic>))
@@ -289,7 +363,7 @@ class _ApiService implements ApiService {
   }
 
   @override
-  Future<NewDeviceResModel> newStuff(nameReqModel) async {
+  Future<NewDeviceResModel> newStuff(OnlyNameReqModel nameReqModel) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
@@ -307,7 +381,11 @@ class _ApiService implements ApiService {
               queryParameters: queryParameters,
               data: _data,
             )
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
     final value = NewDeviceResModel.fromJson(_result.data!);
     return value;
   }
@@ -330,7 +408,11 @@ class _ApiService implements ApiService {
               queryParameters: queryParameters,
               data: _data,
             )
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
     var value = _result.data!
         .map((dynamic i) => DeviceGetAllRes.fromJson(i as Map<String, dynamic>))
         .toList();
@@ -338,7 +420,7 @@ class _ApiService implements ApiService {
   }
 
   @override
-  Future<DeviceGetAllRes> getCategoryTypeById(getById) async {
+  Future<DeviceGetAllRes> getCategoryTypeById(GetById getById) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
@@ -356,13 +438,18 @@ class _ApiService implements ApiService {
               queryParameters: queryParameters,
               data: _data,
             )
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
     final value = DeviceGetAllRes.fromJson(_result.data!);
     return value;
   }
 
   @override
-  Future<NewDeviceResModel> newCategorytype(categoryNewReqModel) async {
+  Future<NewDeviceResModel> newCategorytype(
+      CategoryNewReqModel categoryNewReqModel) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
@@ -380,13 +467,17 @@ class _ApiService implements ApiService {
               queryParameters: queryParameters,
               data: _data,
             )
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
     final value = NewDeviceResModel.fromJson(_result.data!);
     return value;
   }
 
   @override
-  Future<NewDeviceResModel> newFace(faceNewReqModel) async {
+  Future<NewDeviceResModel> newFace(FaceNewReqModel faceNewReqModel) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
@@ -404,13 +495,17 @@ class _ApiService implements ApiService {
               queryParameters: queryParameters,
               data: _data,
             )
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
     final value = NewDeviceResModel.fromJson(_result.data!);
     return value;
   }
 
   @override
-  Future<FaceGetResModel> getFaceById(getById) async {
+  Future<FaceGetResModel> getFaceById(GetById getById) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
@@ -428,7 +523,11 @@ class _ApiService implements ApiService {
               queryParameters: queryParameters,
               data: _data,
             )
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
     final value = FaceGetResModel.fromJson(_result.data!);
     return value;
   }
@@ -451,7 +550,11 @@ class _ApiService implements ApiService {
               queryParameters: queryParameters,
               data: _data,
             )
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
     var value = _result.data!
         .map(
             (dynamic i) => CategroyResModel.fromJson(i as Map<String, dynamic>))
@@ -477,7 +580,11 @@ class _ApiService implements ApiService {
               queryParameters: queryParameters,
               data: _data,
             )
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
     var value = _result.data!
         .map((dynamic i) => FirmGetAllRes.fromJson(i as Map<String, dynamic>))
         .toList();
@@ -485,7 +592,7 @@ class _ApiService implements ApiService {
   }
 
   @override
-  Future<List<FirmGetAllRes>> getFirmById(getById) async {
+  Future<List<FirmGetAllRes>> getFirmById(GetById getById) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
@@ -503,7 +610,11 @@ class _ApiService implements ApiService {
               queryParameters: queryParameters,
               data: _data,
             )
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
     var value = _result.data!
         .map((dynamic i) => FirmGetAllRes.fromJson(i as Map<String, dynamic>))
         .toList();
@@ -511,7 +622,7 @@ class _ApiService implements ApiService {
   }
 
   @override
-  Future<NewDeviceResModel> newFirm(firmNewReqModel) async {
+  Future<NewDeviceResModel> newFirm(FirmNewReqModel firmNewReqModel) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
@@ -529,7 +640,11 @@ class _ApiService implements ApiService {
               queryParameters: queryParameters,
               data: _data,
             )
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
     final value = NewDeviceResModel.fromJson(_result.data!);
     return value;
   }
@@ -545,5 +660,22 @@ class _ApiService implements ApiService {
       }
     }
     return requestOptions;
+  }
+
+  String _combineBaseUrls(
+    String dioBaseUrl,
+    String? baseUrl,
+  ) {
+    if (baseUrl == null || baseUrl.trim().isEmpty) {
+      return dioBaseUrl;
+    }
+
+    final url = Uri.parse(baseUrl);
+
+    if (url.isAbsolute) {
+      return url.toString();
+    }
+
+    return Uri.parse(dioBaseUrl).resolveUri(url).toString();
   }
 }

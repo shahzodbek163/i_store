@@ -12,9 +12,9 @@ class FirmDataGrid extends DataGridSource {
               DataGridCell<String>(columnName: 'name', value: e.address),
               DataGridCell<String>(columnName: 'name', value: e.telefon),
               DataGridCell<String>(columnName: 'name', value: e.email),
+              DataGridCell<String>(columnName: 'user', value: e.user),
               DataGridCell<String>(columnName: 'name', value: e.web),
               DataGridCell<String>(columnName: 'date', value: e.date),
-              DataGridCell<String>(columnName: 'user', value: e.user),
             ]))
         .toList();
   }

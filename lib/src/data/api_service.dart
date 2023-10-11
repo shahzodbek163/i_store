@@ -9,6 +9,7 @@ import 'package:i_store/src/domen/request/onlynamereq/only_name_req_model.dart';
 import 'package:i_store/src/domen/request/product/product_req_model.dart';
 import 'package:i_store/src/domen/response/category/category_res_model.dart';
 import 'package:i_store/src/domen/response/deviceGetAll/device_get_all_res.dart';
+import 'package:i_store/src/domen/response/emploeeGetAllRes/emploee_get_all_res.dart';
 import 'package:i_store/src/domen/response/faceget/face_get_res_model.dart';
 import 'package:i_store/src/domen/response/firmgetall/firm_get_all_res.dart';
 import 'package:i_store/src/domen/response/login/login_res_model.dart';
@@ -21,7 +22,7 @@ import 'package:dio/dio.dart';
 
 part 'api_service.g.dart';
 
-@RestApi(baseUrl: "http://192.168.1.2:8080/api/")
+@RestApi(baseUrl: "https://192.168.1.5:8080/api/")
 abstract class ApiService {
   factory ApiService(Dio dio) = _ApiService;
 
@@ -39,6 +40,9 @@ abstract class ApiService {
 
   @POST("device-type/new")
   Future<NewDeviceResModel> newDevice(@Body() NewDeviceReqModel deviceReqModel);
+
+  @GET("employee")
+  Future<List<EmploeeGetAllRes>> getEmploeeAll();
 
   @POST("employee/new")
   Future<NewDeviceResModel> newEmployee(@Body() NewEmployeeModel employeeModel);

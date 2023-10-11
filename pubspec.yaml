@@ -40,12 +40,14 @@ dependencies:
   bloc: ^8.1.2
   retrofit: ^4.0.1
   json_annotation: ^4.8.1
-  retrofit_generator: '>=5.0.0 <6.0.0'
+  retrofit_generator: ^8.0.0
   build_runner: '>=2.3.0 <4.0.0'
   json_serializable: ^6.7.0
   edu_badge_textfield: ^0.0.6
   edu_selectable_part: ^0.1.5
   syncfusion_flutter_datagrid: ^23.1.38
+  edu_search_table_drop_down: ^0.1.5
+  dio: ^5.3.3
 
 dev_dependencies:
   flutter_test:

@@ -8,6 +8,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:i_store/src/presentation/view/parts/category_part.dart';
 import 'package:i_store/src/presentation/view/parts/device_categories_part.dart';
 import 'package:i_store/src/presentation/view/parts/device_type_part.dart';
+import 'package:i_store/src/presentation/view/parts/emploee_part.dart';
 import 'package:i_store/src/presentation/view/parts/firm_category_part.dart';
 import 'package:i_store/src/presentation/view/parts/stuff_part.dart';
 import 'package:i_store/src/presentation/view/parts/unit_category_part.dart';
@@ -113,6 +114,7 @@ class _MainDataScreenState extends State<MainDataScreen> {
                         "Sotuv miqdor turlari",
                         "Tovar firmalari",
                         "Lavozimlar",
+                        "Hodimlar",
                       ],
                       onChanged: (index) {
                         partCubit.change(index);
@@ -138,6 +140,9 @@ class _MainDataScreenState extends State<MainDataScreen> {
                             }
                             if (state.index == 6) {
                               return const StuffPart();
+                            }
+                            if (state.index == 7) {
+                              return const EmploeePart();
                             }
                           }
                           return const DeviceTypePart();

@@ -1,68 +1,108 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:i_store/src/controller/blocs/employee/employee_bloc.dart';
 import 'package:i_store/src/controller/blocs/firm/firm_bloc.dart';
 import 'package:i_store/src/datagrid/data/firm_datagrid.dart';
 import 'package:i_store/src/datagrid/model/firm_datagrid_model.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:i_store/src/domen/request/firmnewreq/firm_new_req_model.dart';
-import 'package:i_store/src/presentation/view/widget/text_fields_widget.dart';
+import 'package:i_store/src/domen/request/auth/auth_req_model.dart';
+import 'package:i_store/src/domen/request/facenew/face_new_req_model.dart';
+import 'package:i_store/src/domen/request/newemployee/new_employee_req_model.dart';
 import 'package:i_store/src/utils/app_const.dart';
 import 'package:syncfusion_flutter_core/theme.dart';
+import 'package:i_store/src/presentation/view/widget/text_fieds_employe.dart';
 import 'package:syncfusion_flutter_datagrid/datagrid.dart';
 
-class FrimCategoryPart extends StatefulWidget {
-  const FrimCategoryPart({super.key});
+class EmploeePart extends StatefulWidget {
+  const EmploeePart({super.key});
 
   @override
-  State<FrimCategoryPart> createState() => _FrimCategoryPartState();
+  State<EmploeePart> createState() => _EmploeePartState();
 }
 
-class _FrimCategoryPartState extends State<FrimCategoryPart> {
-  final firmTypeBloc = FirmBloc();
-  final address = TextEditingController();
-  final email = TextEditingController();
+class _EmploeePartState extends State<EmploeePart> {
   final name = TextEditingController();
-  final tel = TextEditingController();
-  final web = TextEditingController();
-
+  final lastName = TextEditingController();
+  final sharf = TextEditingController();
+  final birthday = TextEditingController();
+  final passport = TextEditingController();
+  final mainNum = TextEditingController();
+  final lastNum = TextEditingController();
+  final lavozim = TextEditingController();
+  final startDate = TextEditingController();
+  final endDate = TextEditingController();
+  final userName = TextEditingController();
+  final password = TextEditingController();
+  int indexs = 0;
+  final emploeeBloc = EmployeeBloc();
   @override
   void initState() {
     super.initState();
-    firmTypeBloc.add(LoadFirmTypeList());
+    emploeeBloc.add(LoadEmployeeTypeList());
   }
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        TextFieldsWidget(
-          addressChange: (text) {
-            address.text = text;
-          },
-          emailChange: (text) {
-            email.text = text;
-          },
+        TextFieldsEmploye(
           nameChange: (text) {
             name.text = text;
           },
-          phoneChange: (text) {
-            tel.text = text;
+          lastNameChange: (text) {
+            lastName.text = text;
           },
-          webChange: (text) {
-            web.text = text;
+          birthday: (text) {
+            birthday.text = text;
+          },
+          sharfChange: (text) {
+            sharf.text = text;
+          },
+          passpordChange: (text) {
+            passport.text = text;
+          },
+          mainNumChange: (text) {
+            mainNum.text = text;
+          },
+          lastNumChange: (text) {
+            lastNum.text = text;
+          },
+          lavozimChange: (text) {
+            lavozim.text = text;
+          },
+          startDateChange: (text) {
+            startDate.text = text;
+          },
+          endDateChange: (text) {
+            endDate.text = text;
+          },
+          usernameChange: (text) {
+            userName.text = text;
+          },
+          passwordChange: (text) {
+            password.text = text;
+          },
+          stuffId: (index) {
+            indexs = index;
+            print(indexs);
           },
           onTap: () {
-            firmTypeBloc.add(
-              FirmTypeNew(
-                frimNewReqModel: FirmNewReqModel(
-                  address: address.text,
-                  email: email.text,
-                  name: name.text,
-                  tel: tel.text,
-                  web: web.text,
-                ),
+            emploeeBloc.add(EmployeeTypeNew(
+                newEmploeeModel: NewEmployeeModel(
+              auth: AuthReqModel(
+                  password: password.text, username: userName.text),
+              endDate: endDate.text,
+              face: FaceNewReqModel(
+                birthday: birthday.text,
+                firstname: name.text,
+                lastname: lastName.text,
+                middlename: sharf.text,
+                tel1: mainNum.text,
+                tel2: lastNum.text,
               ),
-            );
-            firmTypeBloc.add(LoadFirmTypeList());
+              startDate: startDate.text,
+              stuffId: indexs,
+            )));
+            emploeeBloc.add(LoadEmployeeTypeList());
             setState(() {});
           },
         ),
@@ -78,8 +118,8 @@ class _FrimCategoryPartState extends State<FrimCategoryPart> {
                     frozenPaneLineWidth: 0,
                     gridLineColor: Colors.transparent,
                   ),
-                  child: BlocBuilder<FirmBloc, FirmState>(
-                    bloc: firmTypeBloc,
+                  child: BlocBuilder<EmployeeBloc, EmployeeState>(
+                    bloc: emploeeBloc,
                     builder: (context, state) {
                       return SfDataGrid(
                         selectionMode: SelectionMode.single,
@@ -90,20 +130,23 @@ class _FrimCategoryPartState extends State<FrimCategoryPart> {
                         rowsPerPage: 10,
                         headerRowHeight: 35,
                         rowHeight: 35,
-                        source: FirmDataGrid(state is FirmLoadedState
+                        source: FirmDataGrid(state is EmployeeLoadedState
                             ? List.generate(
-                                state.firmCategoryList.length,
+                                state.employeeCategoryList.length,
                                 (index) => FrimDataGridModel(
                                   id: index + 1,
-                                  nomi: state.firmCategoryList[index].name,
-                                  address:
-                                      state.firmCategoryList[index].address,
-                                  telefon: state.firmCategoryList[index].tel,
-                                  email: state.firmCategoryList[index].email,
-                                  web: state.firmCategoryList[index].web,
-                                  date: state.firmCategoryList[index].date,
-                                  user: state
-                                      .firmCategoryList[index].user.username,
+                                  nomi: state.employeeCategoryList[index].user
+                                      .username,
+                                  address: state.employeeCategoryList[index]
+                                      .face.firstname,
+                                  telefon: state
+                                      .employeeCategoryList[index].face.tel1,
+                                  email: state.employeeCategoryList[index].user
+                                      .username,
+                                  web: "fintechreality@gmail.com",
+                                  date: state.employeeCategoryList[index].date,
+                                  user: state.employeeCategoryList[index].user
+                                      .username,
                                 ),
                               )
                             : []),

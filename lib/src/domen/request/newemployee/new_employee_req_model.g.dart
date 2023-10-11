@@ -10,16 +10,16 @@ NewEmployeeModel _$NewEmployeeModelFromJson(Map<String, dynamic> json) =>
     NewEmployeeModel(
       auth: AuthReqModel.fromJson(json['auth'] as Map<String, dynamic>),
       endDate: json['endDate'] as String,
+      face: FaceNewReqModel.fromJson(json['face'] as Map<String, dynamic>),
       startDate: json['startDate'] as String,
-      stuff: json['stuff'] as int,
-      face: json['face'] as int,
+      stuffId: json['stuffId'] as int,
     );
 
 Map<String, dynamic> _$NewEmployeeModelToJson(NewEmployeeModel instance) =>
     <String, dynamic>{
       'auth': instance.auth,
       'endDate': instance.endDate,
-      'startDate': instance.startDate,
-      'stuff': instance.stuff,
       'face': instance.face,
+      'startDate': instance.startDate,
+      'stuffId': instance.stuffId,
     };
