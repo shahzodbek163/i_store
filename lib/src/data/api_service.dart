@@ -22,7 +22,7 @@ import 'package:dio/dio.dart';
 
 part 'api_service.g.dart';
 
-@RestApi(baseUrl: "https://192.168.1.5:8080/api/")
+@RestApi(baseUrl: "https://192.168.1.2:8080/api/")
 abstract class ApiService {
   factory ApiService(Dio dio) = _ApiService;
 

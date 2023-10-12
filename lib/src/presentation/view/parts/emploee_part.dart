@@ -7,6 +7,7 @@ import 'package:i_store/src/datagrid/model/firm_datagrid_model.dart';
 import 'package:i_store/src/domen/request/auth/auth_req_model.dart';
 import 'package:i_store/src/domen/request/facenew/face_new_req_model.dart';
 import 'package:i_store/src/domen/request/newemployee/new_employee_req_model.dart';
+import 'package:i_store/src/presentation/view/widget/alert_widget.dart';
 import 'package:i_store/src/utils/app_const.dart';
 import 'package:syncfusion_flutter_core/theme.dart';
 import 'package:i_store/src/presentation/view/widget/text_fieds_employe.dart';
@@ -38,6 +39,16 @@ class _EmploeePartState extends State<EmploeePart> {
   void initState() {
     super.initState();
     emploeeBloc.add(LoadEmployeeTypeList());
+  }
+
+  Future<void> _showMyDialog() async {
+    return showDialog<void>(
+      context: context,
+      barrierDismissible: false,
+      builder: (BuildContext context) {
+        return const AlertWidged();
+      },
+    );
   }
 
   @override
@@ -86,6 +97,7 @@ class _EmploeePartState extends State<EmploeePart> {
             print(indexs);
           },
           onTap: () {
+            _showMyDialog();
             emploeeBloc.add(EmployeeTypeNew(
                 newEmploeeModel: NewEmployeeModel(
               auth: AuthReqModel(

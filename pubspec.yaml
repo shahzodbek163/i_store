@@ -48,6 +48,7 @@ dependencies:
   syncfusion_flutter_datagrid: ^23.1.38
   edu_search_table_drop_down: ^0.1.5
   dio: ^5.3.3
+  analyzer: ^6.2.0
 
 dev_dependencies:
   flutter_test:
